@@ -12,6 +12,7 @@ export default function Page() {
   const [events, setEvents] = useState<FCEvent[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [visitsMap, setVisitsMap] = useState<Record<string, string>>({}) 
 
   useEffect(() => {
     const fetchDemo = async () => {
@@ -20,6 +21,13 @@ export default function Page() {
         const json = res.data as InputJson
         setInput(json)
         setEvents(convertInputToEvents(json))
+
+        //create map of visit id-> name
+        const  map: Record<string, string> = {}
+        json.visits.forEach(v =>{
+          map[v.id] = v.name || v.id
+        })
+        setVisitsMap(map)
       } catch (err: any) {
         console.error(err)
         setError(err.message || String(err))
@@ -35,7 +43,10 @@ export default function Page() {
       const solveResp = await axios.post('/api/solve', input)
       const planId = solveResp.data.id
       const solution = await pollSolution(planId)
-      setEvents(solutionToEvents(solution))
+
+      // Pass visitsMap to convert solution to events with names
+      setEvents(solutionToEvents(solution, visitsMap))
+
     } catch (err: any) {
       console.error(err)
       setError(err.message || String(err))
@@ -54,7 +65,7 @@ export default function Page() {
 
       // Drawing the intermediate process
       if (resp.data.modelOutput) {
-        setEvents(solutionToEvents(resp.data.modelOutput))
+        setEvents(solutionToEvents(resp.data.modelOutput, visitsMap))
       }
 
       await new Promise(res => setTimeout(res, 2000))

@@ -1,12 +1,12 @@
 import { InputJson, FCEvent } from "../types";
 
-// --- 最適化前: input → events
+// Before optimization: input → events
 export function convertInputToEvents(input: InputJson): FCEvent[] {
   const events: FCEvent[] = []
 
   input.vehicles.forEach(v => {
     v.shifts.forEach(shift => {
-      // Shift 全体
+      // Shift
       events.push({
         id: `shift-${v.id}-${shift.id}`,
         resourceId: v.id,
@@ -14,7 +14,7 @@ export function convertInputToEvents(input: InputJson): FCEvent[] {
         startDate: shift.minStartTime,
         endDate: shift.maxEndTime,
         name: `Shift (${v.id})`,
-        eventColor: "gray"
+        eventColor: "green"
       })
 
       // Break
@@ -55,8 +55,8 @@ export function convertInputToEvents(input: InputJson): FCEvent[] {
   return events
 }
 
-// --- 最適化後: solution → events
-export function solutionToEvents(solution: any): FCEvent[] {
+// After optimization: solution → events
+export function solutionToEvents(solution: any, visitsMap?: Record<string, string>): FCEvent[] {
   const out: FCEvent[] = []
 
   for (const vehicle of solution.vehicles ?? []) {
@@ -64,13 +64,15 @@ export function solutionToEvents(solution: any): FCEvent[] {
     const vehicleName = vehicle.name || vehicle.id
     for (const shift of vehicle.shifts ?? []) {
       for (const task of shift.itinerary ?? []) {
+        const visitName =
+        task.kind === 'BREAK' ? 'Break'  : visitsMap?.[task.id] || task.name || `Visit ${task.id}`
         out.push({
           id: task.id,
           resourceId: vehicleId,
           resourceName: vehicleName,
           startDate: task.startServiceTime || task.startTime || task.arrivalTime,
           endDate: task.departureTime || task.endTime,
-          name: task.kind === 'BREAK' ? 'Break' : `Visit ${task.id}`,
+          name: visitName,
           eventColor: task.kind === 'BREAK' ? 'orange' : 'blue'
         })
       }
@@ -79,37 +81,3 @@ export function solutionToEvents(solution: any): FCEvent[] {
 
   return out
 }
-
-
-
-
-/* import { InputJson, FCEvent } from '../types'
-
-export function convertInputToEvents(input: InputJson): FCEvent[] {
-  const startBase = new Date(input.dayStart)
-  const events: FCEvent[] = []
-
-  let offsetByVehicle: Record<string, number> = {}
-  input.vehicles.forEach((v) => (offsetByVehicle[v.id] = 0))
-
-  input.visits.forEach((visit, idx) => {
-    const vehicle = input.vehicles[idx % input.vehicles.length]
-    const offset = offsetByVehicle[vehicle.id]
-    const start = new Date(startBase.getTime() + offset * 60 * 1000)
-    const end = new Date(start.getTime() + visit.durationMin * 60 * 1000)
-    offsetByVehicle[vehicle.id] = offset + visit.durationMin + 15
-
-    events.push({
-      id: visit.id,
-      title: `${visit.address} — ${vehicle.name}`,
-      start: start.toISOString(),
-      end: end.toISOString(),
-      extendedProps: {
-        vehicleId: vehicle.id,
-        durationMin: visit.durationMin
-      }
-    })
-  })
-
-  return events
-} */
