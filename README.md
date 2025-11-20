@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Optimization for Scheduling with Timefold Field Service Routing API
 
-## Getting Started
+## 📚 Overview
+This is a development test project using the Timefold Field Service Routing API
 
-First, run the development server:
+### Requirements
+1. Display baseline data
+Load a demo input JSON from the Timefold Field Service Routing Guide or via the demo-data endpoints below.
+Render the data visually in a [Bryntum SchedulerPro](https://app.timefold.ai/models/field-service-routing/v1/api-spec) timeline (e.g. vehicles, visits, shifts).
+2. Solve the schedule
+Aim for a clean, minimal UI.
+Allow the user to send the input JSON to Timefold's /route-plans endpoint.
+Receive the output JSON and display the optimized schedule in page with a Bryntum component. You can show both active jobs (best solution) and the completed solution.
+3. Visualize results
+Update the SchedulerPro view to show employees (vehicles in timefold), optimized visit order, timing, and assignments.
 
+### Tech Stack
+Next.js, React (TypeScript)
+
+### API
+**Timefold PlanningAI:**  [Timefold API Endpoints](https://app.timefold.ai/models/field-service-routing/v1/api-spec/)
+This Timefold Model exposes an API that helps your software to assign customer visits to technicians, and route the technicians to those visits.
+-GET /v1/demo-data/{demoDataId}/input (use BASIC)
+-POST /v1/route-plans
+-GET /v1/route-plans/{id} 
+
+## 💬 Contents
+
+### 1. How to run the project
+ 
+- Install dependencies:
+```bash
+npm install
+```
+- Add a .env file in the project root:
+```bash
+TIMEFOLD_API_KEY=*****
+TIMEFOLD_BASE_URL=https://app.timefold.ai/api/models/field-service-routing/v1
+TIMEFOLD_CONFIG_ID=*****
+```
+- Download and add Bryntum SchedulerPro under the lib directory.
+- start the project:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Which parts are complete
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All required features have been implemented.
+Optional features are not included.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. What AI tools you used during development
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ChatGPT
