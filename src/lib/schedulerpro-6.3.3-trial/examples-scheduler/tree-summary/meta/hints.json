@@ -1,7 +1,0 @@
-{
-  ".b-used-capacity": {
-    "title": "Tree Summary",
-    "content": "Rollup values from leaf rows up to their parents",
-    "align": "t2-b0"
-  }
-}

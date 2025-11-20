@@ -1,5 +1,0 @@
-{
-  ".b-grid-cell[data-column=\"favorite\"]": {
-    "html": "Resources which have the <code>favorite</code> field set are locked at the top of the scheduler"
-  }
-}

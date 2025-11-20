@@ -1,8 +1,0 @@
-{
-  "title": "Big data set vertical demo",
-  "description": "Demonstrates that the vertical scheduler performs well even with many many rows.",
-  "source": [
-    "app.js",
-    "index.html"
-  ]
-}

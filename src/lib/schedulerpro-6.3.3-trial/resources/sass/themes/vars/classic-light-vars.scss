@@ -1,7 +1,0 @@
-@use 'sass:color';
-@import '../../../scheduler-sass/themes/vars/classic-light-vars';
-
-$schedulerpro-timeline-background-color      : #fff;
-$schedulerpro-timeline-border-color          : color.adjust($gray, $lightness : -10%);
-
-$taskeditor-recurrence-info-background-color : #ffeeee;

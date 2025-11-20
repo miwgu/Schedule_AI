@@ -1,9 +1,0 @@
-{
-  "title": "Variable Row height",
-  "description": "Allows adjusting row height and bar margin using sliders to get immediate feedback on the effect of those settings",
-  "source": [
-    "app.js",
-    "index.html",
-    "resources/app.scss"
-  ]
-}

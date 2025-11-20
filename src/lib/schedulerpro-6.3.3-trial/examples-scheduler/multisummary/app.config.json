@@ -1,9 +1,0 @@
-{
-  "title": "Multi summary demo",
-  "description": "This example shows how to display multiple summaries for the schedule part.",
-  "source": [
-    "app.js",
-    "data/data.json",
-    "index.html"
-  ]
-}

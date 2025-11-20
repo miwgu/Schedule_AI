@@ -1,9 +1,0 @@
-{
-  "title": "Splitting demo",
-  "description": "This example demonstrates how split the scheduler into multiple views",
-  "source": [
-    "app.js",
-    "index.html",
-    "resources/app.scss"
-  ]
-}

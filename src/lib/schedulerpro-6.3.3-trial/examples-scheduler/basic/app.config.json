@@ -1,8 +1,0 @@
-{
-  "title": "Basic demo",
-  "description": "Shows a very basic scheduler setup",
-  "source": [
-    "app.js",
-    "index.html"
-  ]
-}
