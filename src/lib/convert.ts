@@ -3,18 +3,31 @@ import { InputJson, FCEvent } from "../types";
 // Before optimization: input → events
 export function convertInputToEvents(input: InputJson): FCEvent[] {
   const events: FCEvent[] = []
+  const vehicleSkills: { name: string; level: number }[] = []
+  const resourceSkillsMap: Record<string, string[]> = {}
 
   input.vehicles.forEach(v => {
+
+    const vehicleId = v.id
+    const skills: string[] = []
+
+
     v.shifts.forEach(shift => {
       // Shift
       events.push({
-        id: `shift-${v.id}-${shift.id}`,
-        resourceId: v.id,
-        resourceName: v.id,
+        id: `shift-${vehicleId}-${shift.id}`,
+        resourceId: vehicleId,
+        resourceName: vehicleId,
         startDate: shift.minStartTime,
         endDate: shift.maxEndTime,
-        name: `Shift (${v.id})`,
-        eventColor: "green"
+        name: `Shift (${vehicleId})`,
+        eventColor: "green",
+        skills: shift.skills ?? []
+      })
+
+      // Skills
+      shift.skills?.forEach(s => {
+        vehicleSkills.push({ name: s.name, level: s.level })
       })
 
       // Break
@@ -25,15 +38,17 @@ export function convertInputToEvents(input: InputJson): FCEvent[] {
 
         events.push({
           id: `break-${b.id}`,
-          resourceId: v.id,
-          resourceName: v.id,
+          resourceId: vehicleId,
+          resourceName: vehicleId,
           startDate: start,
           endDate: end,
           name: "Break",
-          eventColor: "orange"
+          eventColor: "orange",
+          skills: vehicleSkills
         })
       })
     })
+    resourceSkillsMap[vehicleId] = vehicleSkills.map(s => `${s.name} Lv${s.level}`)
   })
 
   // Visits

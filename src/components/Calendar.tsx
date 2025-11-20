@@ -39,12 +39,12 @@ export default function Calendar({ events }: CalendarProps) {
         return
       }
 
-      // Build unique resource list from events
-      const resourceMap = new Map<string, { id: string; name: string }>()
+      // Extract unique resources (id & name) from events to build the SchedulerPro resource list
+      const resourceMap = new Map<string, { id: string; name: string; skills?: { name: string; level: number }[]}>()
       events.forEach(e => {
         const rid = e.resourceId || 'unassigned'
         if (!resourceMap.has(rid)) {
-          resourceMap.set(rid, { id: rid, name: e.resourceName || rid })
+          resourceMap.set(rid, { id: rid, name: e.resourceName || rid , skills: e.skills})
         }
       })
       const resources = Array.from(resourceMap.values())
@@ -53,7 +53,6 @@ export default function Calendar({ events }: CalendarProps) {
       const evts = events.map(e => ({
         id: e.id,
         resourceId: e.resourceId || 'unassigned',
-        // Keep Date objects so SchedulerPro can handle timezones properly
         startDate: new Date(e.startDate),
         endDate: new Date(e.endDate),
         name: e.name,
@@ -83,7 +82,21 @@ export default function Calendar({ events }: CalendarProps) {
 
         // Show resource name column (left)
         columns: [
-          { text: 'Employee', field: 'name', width: 150 }
+          { text: 'Employee', 
+            field: 'name', 
+            width: 150,
+            renderer: ({ record }:any) => {
+            const skills = record.skills?.map((s:any) => `${s.name} Lv${s.level}`).join(', ') || 'No skills'
+            return {
+              tag: 'div',
+              children: [
+                { tag: 'div', html: `<strong>${record.name}</strong>` },
+                { tag: 'div', html: skills, style: 'font-size:0.8em;color:gray;' }
+            ]
+          }
+       }
+          
+          }
         ],
 
         // Two subgrids: left locked (resources) and main timeline

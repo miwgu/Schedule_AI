@@ -6,6 +6,7 @@ export interface FCEvent {
   endDate: string
   name: string
   eventColor?: string
+  skills?: { name: string; level: number }[] 
 }
 
 export interface InputJson {
@@ -25,6 +26,7 @@ export interface Shift {
   minStartTime: string
   maxEndTime: string
   requiredBreaks: BreakItem[]
+  skills?: { name: string; level: number }[] 
 }
 
 export interface BreakItem {
