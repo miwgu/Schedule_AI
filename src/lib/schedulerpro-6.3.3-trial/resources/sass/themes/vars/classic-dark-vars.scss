@@ -1,0 +1,31 @@
+@use 'sass:color';
+@import '../../../scheduler-sass/themes/vars/classic-dark-vars';
+
+$resourcehistogram-bar-color                        : color.scale($event-color-green, $lightness : -50%);
+$resourcehistogram-bar-hover-color                  : color.scale($event-color-green, $lightness : -40%);
+$resourcehistogram-overallocated-bar-color          : color.scale($event-color-red, $lightness : -20%);
+$resourcehistogram-overallocated-bar-hover-color    : color.scale($event-color-red, $lightness : -10%);
+$resourcehistogram-underallocated-bar-color         : color.scale($event-color-green, $lightness : -20%);
+$resourcehistogram-underallocated-bar-hover-color   : color.scale($event-color-green, $lightness : -10%);
+
+$resourceutilization-bar-color                      : color.scale($event-color-green, $lightness : -50%);
+$resourceutilization-bar-hover-color                : color.scale($event-color-green, $lightness : -40%);
+$resourceutilization-overallocated-bar-color        : color.scale($event-color-red, $lightness : -20%);
+$resourceutilization-overallocated-bar-hover-color  : color.scale($event-color-red, $lightness : -10%);
+$resourceutilization-underallocated-bar-color       : color.scale($event-color-green, $lightness : -20%);
+$resourceutilization-underallocated-bar-hover-color : color.scale($event-color-green, $lightness : -10%);
+
+$schedulerpro-timeline-border-color                 : color.adjust($gray, $lightness : 10%);
+$schedulerpro-timeline-label-color                  : color.adjust($gray, $lightness : 20%);
+$schedulerpro-timeline-label-font-weight            : 400;
+
+$nested-events-parent-color                         : #999 !default;
+$nested-events-parent-selected-color                : #aaa !default;
+$nested-events-parent-hover-background-color        : #333 !default;
+
+$taskeditor-recurrence-info-background-color        : #3d2929;
+
+
+$schedulerpro-highlighted-calendar-color            : #6ca2fe !default;
+$schedulerpro-highlighted-calendar-background-color : #3183fe4d !default;
+$schedulerpro-highlighted-calendar-border-color     : #3183fe4d !default;

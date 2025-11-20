@@ -1,0 +1,10 @@
+.b-sch-event{
+  border-radius:5px;
+  opacity:0.6;
+  background-image:linear-gradient(rgba(255, 255, 255, 0.5647058824), rgba(255, 255, 255, 0.5647058824));
+}
+.b-sch-event .b-sch-event-content{
+  color:#222;
+}
+
+/*# sourceMappingURL=app.css.map */

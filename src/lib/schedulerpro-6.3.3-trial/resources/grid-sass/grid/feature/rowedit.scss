@@ -1,0 +1,34 @@
+.b-row-editor {
+    --b-label-width : 10em;
+
+    .b-field .b-label {
+        width : var(--b-label-width);
+    }
+
+    .b-bottom-toolbar {
+        .b-toolbar-content {
+            padding-inline-start: calc(#{$panel-content-padding} + var(--b-label-width));
+            .b-theme-material & {
+                padding-inline-start : 0;
+                justify-content      : space-evenly;
+            }
+        }
+        .b-editor-instant-update & {
+            display : none;
+        }
+    }
+
+    // Hide Save button in read only editor
+    &.b-readonly {
+        [data-ref="save"] {
+            display : none;
+        }
+    }
+
+    :is(.b-panel-overlay-right,.b-panel-overlay-left) {
+        .b-toolbar-content > * {
+            flex      : 1 1 33%;
+            max-width : 10em;
+        }
+    }
+}

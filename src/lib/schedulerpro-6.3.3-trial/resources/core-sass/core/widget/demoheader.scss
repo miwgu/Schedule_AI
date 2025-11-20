@@ -1,0 +1,97 @@
+@media (max-width : 800px) {
+    #trial-button {
+        display : none;
+    }
+}
+
+.demo-header {
+    display          : flex;
+    flex             : none !important;
+    align-items      : center;
+    padding          : 0.5em;
+    background-color : #0076f8;
+    color            : #fff !important;
+
+    .b-widget:not(:last-child) {
+        margin-right : 0.6em;
+    }
+
+    .b-button,
+    label {
+        color : #fff !important;
+    }
+
+    a {
+        color           : #fff !important;
+        text-decoration : none;
+    }
+
+    #title-container {
+        display     : inline-flex;
+        align-items : center;
+        flex        : 1
+    }
+
+    #title {
+        display               : inline-flex;
+        align-items           : center;
+        padding-left          : 2.1em;
+        font-size             : 1.3em;
+        line-height           : 1.6em;
+        background-size       : 1.6em;
+        background-position-y : center;
+        background-repeat     : no-repeat;
+        background-image      : url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzU0LjkgMTQ0LjUyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmZmYiPjxwYXRoIGQ9Im0zMDUuNjMgMTQ0LjUyYy0xMi40NyAwLTIzLjUzLTQuODMtMzEuNTgtMTMuMjh2MTEuMDZoLTI1LjU0di0xNDIuM2gyNi43NXY0OC41OGM3Ljg0LTcuNjQgMTguNS0xMi4wNyAzMC4zNy0xMi4wNyAyNy4xNSAwIDQ5LjI4IDIzLjMzIDQ5LjI4IDU0LjFzLTIyLjEyIDUzLjktNDkuMjggNTMuOXptLTMuODItODMuNDdjLTE0LjY4IDAtMjYuNTUgMTMuMjctMjYuNTUgMjkuNzdzMTEuODcgMjkuMTYgMjYuNTUgMjkuMTYgMjYuNTUtMTIuNjcgMjYuNTUtMjkuMTYtMTEuODctMjkuNzctMjYuNTUtMjkuNzd6Ii8+PHBhdGggZD0ibTE0OC4wMiAwaDc0LjAxdjI5Ljc4aC03NC4wMXoiLz48cGF0aCBkPSJtMCA1Ni4yNmgyMjIuMDN2MjkuNzhoLTIyMi4wM3oiLz48cGF0aCBkPSJtNzQuMDEgMTEyLjUyaDE0OC4wMnYyOS42aC0xNDguMDJ6Ii8+PC9nPjwvc3ZnPgo=");
+        white-space           : nowrap;
+
+        h1 {
+            margin      : 0;
+            font-size   : inherit;
+            font-weight : 400;
+        }
+    }
+
+
+    .b-theme-combo {
+        margin-right : 0.6em;
+    }
+
+    #tools {
+        display          : flex;
+        align-items      : center;
+        background-color : inherit;
+        transition       : background-color 0s, margin-top .3s;
+
+        .b-widget {
+            font-size   : 1em;
+            font-weight : 400;
+        }
+
+        > .b-widget:not([data-group]) {
+            margin-left : .5em;
+            display     : inline-flex;
+        }
+
+        .b-button {
+            color       : #fff;
+            margin-left : .5em;
+            border      : 0 none;
+        }
+
+        .b-button:hover:not(.b-disabled) {
+            background-color : rgba(255, 255, 255, 0.3);
+        }
+
+        .b-field {
+            margin-right : 0;
+        }
+
+        .b-numberfield {
+            width : 18em;
+        }
+    }
+
+    .b-has-label.b-bright:not(.b-disabled) label {
+        color : #fff;
+    }
+}

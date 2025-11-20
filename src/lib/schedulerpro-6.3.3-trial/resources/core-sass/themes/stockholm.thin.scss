@@ -1,0 +1,9 @@
+@import 'vars/stockholm-vars';
+@import '../all';
+
+.b-list.b-multiselect .b-selected-icon,
+%checkbox-icon {
+    --checkbox-unchecked-check-color    : transparent;
+    --checkbox-checked-background-color : transparent;
+    --checkbox-checked-check-color      : #474849;
+}

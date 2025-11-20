@@ -1,0 +1,24 @@
+.b-dragselect-rect {
+    background : #3183fe18;
+    border     : 1px solid #3183fe28;
+}
+
+[data-ref=selectionSummary] {
+    strong {
+        font-weight: 500;
+    }
+
+    strong, i {
+        margin-inline : 1em .4em;
+    }
+
+    i {
+        color : #0276f8;
+    }
+
+    span {
+        padding-inline-start : .2em;
+        min-width            : 5em;
+    }
+}
+

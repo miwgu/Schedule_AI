@@ -1,0 +1,31 @@
+.b-sch-event-wrap .b-sch-event{
+  opacity:0.7;
+  border-radius:2px;
+}
+.b-sch-event-wrap .b-sch-event .b-sch-event-content{
+  display:flex;
+  flex:1;
+  align-items:center;
+  color:#444;
+  padding:0 0.3em;
+}
+.b-sch-event-wrap .b-sch-event .b-sch-event-content .desc{
+  flex:1;
+  text-align:center;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+
+.order{
+  font-size:0.8em;
+  color:#555;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+
+.b-task-percent-bar{
+  background-color:currentColor;
+  mix-blend-mode:multiply;
+}
+
+/*# sourceMappingURL=app.css.map */

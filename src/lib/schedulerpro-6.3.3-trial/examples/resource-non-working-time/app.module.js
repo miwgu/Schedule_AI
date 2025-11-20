@@ -1,0 +1,140 @@
+import shared from '../_shared/shared.module.js';
+import { SchedulerPro, DateHelper, Tooltip, Toast } from '../../build/schedulerpro.module.js';
+
+const scheduler = new SchedulerPro({
+    // A Project holds the data and the calculation engine for Scheduler Pro. It also acts as a CrudManager, allowing
+    // loading data into all stores at once
+    project : {
+        autoLoad : true,
+        loadUrl  : './data/data.json'
+    },
+
+    appendTo          : 'container',
+    startDate         : '2020-03-23T07:00',
+    endDate           : '2020-03-23T23:00',
+    rowHeight         : 70,
+    eventStyle        : 'hollow',
+    resourceImagePath : '../_shared/images/users/',
+
+    viewPreset : {
+        tickWidth         : 20,
+        displayDateFormat : 'll HH:mm',
+        shiftIncrement    : 1,
+        shiftUnit         : 'day',
+        defaultSpan       : 24,
+        timeResolution    : {
+            unit      : 'minute',
+            increment : 30
+        },
+        headers : [
+            {
+                unit       : 'day',
+                dateFormat : 'ddd DD/MM' //Mon 01/10
+            },
+            {
+                unit       : 'hour',
+                dateFormat : 'HH'
+            }
+        ]
+    },
+
+    features : {
+        dependencies           : false,
+        nonWorkingTime         : false,
+        resourceNonWorkingTime : {
+            enableMouseEvents : true
+        },
+        timeRanges : {
+            showCurrentTimeLine : true
+        }
+    },
+
+    columns : [
+        {
+            type           : 'resourceInfo',
+            text           : 'Worker',
+            showEventCount : false,
+            showRole       : true
+        },
+        {
+            type  : 'resourceCalendar',
+            text  : 'Shift',
+            width : 120
+        }
+    ],
+
+    tbar : [
+        {
+            icon     : 'b-icon b-icon-previous',
+            onAction : 'up.onPreviousDayClick'
+        },
+        {
+            type     : 'button',
+            text     : 'Today',
+            onAction : 'up.onTodayClick'
+        },
+        {
+            icon     : 'b-icon b-icon-next',
+            onAction : 'up.onNextDayClick'
+        },
+        {
+            type    : 'checkbox',
+            checked : true,
+            text    : 'Show non working time',
+            style   : 'margin-inline-start:1em',
+            onAction({ checked }) {
+                scheduler.features.resourceNonWorkingTime.disabled = !checked;
+            }
+        },
+        {
+            type       : 'button',
+            text       : 'Enable mouse interaction',
+            pressed    : true,
+            toggleable : true,
+            onToggle({ pressed }) {
+                scheduler.features.resourceNonWorkingTime.enableMouseEvents = pressed;
+            }
+        }
+    ],
+
+    onNextDayClick() {
+        this.shiftNext();
+    },
+
+    onTodayClick() {
+        const startDate = DateHelper.clearTime(new Date());
+        startDate.setHours(7);
+        this.startDate = startDate;
+    },
+
+    onPreviousDayClick() {
+        this.shiftPrevious();
+    },
+
+    listeners : {
+        paint() {
+            const scheduler = this;
+
+            scheduler.rangeTooltip = new Tooltip({
+                rootElement : document.body,
+                forSelector : '.b-sch-resourcenonworkingtime',
+                getHtml     : ({ event }) => {
+                    const
+                        rangeRecord = scheduler.features.resourceNonWorkingTime.resolveResourceNonWorkingTimeInterval(event.target),
+                        hours       = DateHelper.as('hour', rangeRecord.duration, rangeRecord.durationUnit),
+                        text        = rangeRecord.name || 'Nonworking time';
+
+                    return `${text} (${hours} ${DateHelper.getLocalizedNameOfUnit('hour', hours !== 1)})`;
+                }
+            });
+        },
+
+        resourceNonWorkingTimeClick({ resourceNonWorkingTimeRecord }) {
+            Toast.show(`You clicked ${resourceNonWorkingTimeRecord.name || 'a nonworking time block'}`);
+        },
+
+        destroy() {
+            this.rangeTooltip.destroy();
+        }
+    }
+});

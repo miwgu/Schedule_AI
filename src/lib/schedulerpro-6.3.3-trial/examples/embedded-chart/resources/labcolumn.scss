@@ -1,0 +1,60 @@
+// Styling of cells in the lab column
+.b-labcell {
+    flex-direction : column;
+
+    // Show widgets only when row is expanded
+    .b-slidetoggle,
+    .b-slider {
+        display : none;
+
+        .b-row-expanded & {
+            display : flex;
+        }
+
+        label {
+            margin-inline-start : 0;
+            width               : 8em;
+            font-size           : 0.8em;
+            color               : inherit;
+            text-transform      : none;
+            text-align          : left;
+        }
+    }
+
+    .b-slidetoggle {
+        height : 2em;
+
+        .b-slidetoggle-toggle {
+            background : #e0e0e7;
+        }
+
+        input:checked + .b-slidetoggle-toggle {
+            background : #3083fe;
+        }
+
+        input, .b-slidetoggle-toggle {
+            margin-top : 0.1em;
+        }
+    }
+
+    // Layout slider label to the left of the input
+    .b-slider {
+        flex-direction : row;
+
+        input {
+            width : 60px;
+        }
+
+        label {
+            order : -1;
+        }
+    }
+}
+
+.b-grid-row .b-grid-cell .b-name {
+    display       : flex;
+    align-items   : center;
+    flex-shrink   : 0;
+    margin-bottom : auto;
+    padding-block : 1em;
+}

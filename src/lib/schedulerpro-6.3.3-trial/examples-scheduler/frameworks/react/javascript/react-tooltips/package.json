@@ -1,0 +1,59 @@
+{
+  "name": "react-tooltips",
+  "description": "Using React components in tooltips",
+  "version": "6.3.3",
+  "author": {
+    "name": "Bryntum",
+    "url": "https://bryntum.com",
+    "email": "info@bryntum.com"
+  },
+  "license": "commercial",
+  "homepage": "./",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "postinstall"
+  },
+  "postinstall": {
+    "node_modules/@bryntum/demo-resources/images/users/*": "copy public/users/",
+    "node_modules/@bryntum/demo-resources/images/favicon.png": "copy public/",
+    "node_modules/@bryntum/schedulerpro/*.css*": "copy public/themes/",
+    "node_modules/@bryntum/schedulerpro/fonts/*": "copy public/themes/fonts/"
+  },
+  "dependencies": {
+    "@bryntum/demo-resources": "1.4.0",
+    "@bryntum/schedulerpro": "npm:@bryntum/schedulerpro-trial@6.3.3",
+    "@bryntum/schedulerpro-react": "6.3.3",
+    "prop-types": "15.7.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "postinstall": "0.7.4",
+    "sass": "1.78.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig-disabled": {
+    "extends": [
+      "react-app"
+    ]
+  }
+}

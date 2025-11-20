@@ -1,0 +1,26 @@
+@import "../../variables";
+
+.b-chart {
+    .b-chart-content {
+        position : absolute;
+        width    : 100%;
+        top      : 0;
+        bottom   : 0;
+    }
+
+    .b-chart-content.b-chart-show-controls {
+        padding-top : 1em;
+    }
+
+    .b-chart-controls {
+        position         : absolute;
+        z-index          : 1;
+        top              : 0;
+        inset-inline-end : 0;
+        gap              : 0;
+
+        .b-button {
+            padding : 0 1em;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<!-- BryntumDemoHeader component is used for Bryntum example styling only and can be removed -->
+<bryntum-demo-header></bryntum-demo-header>
+
+<div class="demo-toolbar">
+  <div>Current timezone:</div>
+  <bryntum-combo
+      [items]="timeZones"
+      [value]="currentTimeZone"
+      (onSelect)="onTimeZoneSelect($event)"
+      [disabled]="isLoading"
+      filterOperator="*"
+      ariaLabel="Current time zone"
+  ></bryntum-combo>
+  <div class="spacer"></div>
+  <div>
+    <bryntum-button
+        icon='b-fa-angle-left'
+        id='button-previous'
+        tooltip='View previous day'
+        (onAction)="onPrevDayClick()"
+        [disabled]="isLoading"
+    ></bryntum-button>
+    <bryntum-button
+        text='Today'
+        id='button-today'
+        tooltip='View today, to see the current time line'
+        (onAction)="onTodayClick()"
+        [disabled]="isLoading"
+    ></bryntum-button>
+    <bryntum-button
+        icon='b-fa-angle-right'
+        id='button-next'
+        tooltip='View next day'
+        (onAction)="onNextDayClick()"
+        [disabled]="isLoading"
+    ></bryntum-button>
+  </div>
+</div>
+
+<bryntum-scheduler-pro
+    #schedulerpro
+    [resourceImagePath]="schedulerProProps.resourceImagePath"
+    [timeZone]="schedulerProProps.timeZone"
+    [eventRenderer]="eventRenderer"
+    [timeRangesFeature]="schedulerProProps.timeRangesFeature"
+    [nestedEventsFeature]="schedulerProProps.nestedEventsFeature"
+    [resourceTimeRangesFeature]="schedulerProProps.resourceTimeRangesFeature"
+    [rowHeight]="schedulerProProps.rowHeight"
+    [barMargin]="schedulerProProps.barMargin"
+    [viewPreset]="schedulerProProps.viewPreset"
+    [columns]="schedulerProProps.columns"
+    [project]="schedulerProProps.project"
+></bryntum-scheduler-pro>

@@ -1,0 +1,30 @@
+.b-resourcefilter {
+    .b-list-item {
+        border         : 0 none;
+        border-radius  : 0;
+        padding-inline : .5em;
+    }
+
+    &.b-list.b-multiselect {
+        .b-selected-icon {
+            background                            : transparent;
+            opacity                               : .6;
+            font-size                             : 80%;
+            visibility                            : visible;
+
+            --widget-primary-color-rgb            : inherit;
+            --checkbox-background-color           : hsl(var(--event-primary-color-h, #{hue($dark-gray)}), var(--event-primary-color-s, #{saturation($dark-gray)}), var(--event-primary-color-l, #{lightness($dark-gray)}));
+            --checkbox-checked-background-color   : var(--checkbox-background-color);
+            --checkbox-unchecked-background-color : var(--checkbox-background-color);
+            --checkbox-checked-check-color        : var(--color-white);
+            --checkbox-unchecked-check-color      : transparent;
+        }
+
+        .b-selected .b-selected-icon {
+            visibility : visible;
+            opacity    : 1;
+        }
+    }
+}
+
+

@@ -1,0 +1,19 @@
+<!-- BryntumDemoHeader component is used for Bryntum example styling only and can be removed -->
+<bryntum-demo-header></bryntum-demo-header>
+
+<bryntum-scheduler-pro
+    #grid
+    [columns]="schedulerProProps.columns!"
+    [project]="schedulerProProps.project!"
+    [startDate]="startDate"
+    [endDate]="endDate"
+    [rowHeight]="50"
+    [barMargin]="0"
+    [viewPreset]="schedulerProProps.viewPreset!"
+    [timeAxis]="schedulerProProps.timeAxis!"
+    [eventRenderer]="schedulerProProps.eventRenderer!"
+    [taskEditFeature]="schedulerProProps.taskEditFeature!"
+    groupFeature="type"
+    [percentBarFeature]="true"
+
+></bryntum-scheduler-pro>

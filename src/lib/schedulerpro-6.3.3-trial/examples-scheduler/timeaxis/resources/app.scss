@@ -1,0 +1,35 @@
+.b-tabpanel {
+    flex : 1;
+}
+
+.b-tabpanel-body.b-card-container {
+    padding       : 0;
+    border-radius : 0;
+}
+
+.b-tabpanel-item .b-panel-content {
+    padding : 0;
+}
+
+body:not(.b-theme-classic-dark) .b-scheduler {
+    background-color : #fff;
+}
+
+.b-toolbar > .b-content-element > .b-button {
+    margin-inline-end : .5em;
+}
+
+.sch-hdr-startend .b-sch-header-text {
+    display : inline-flex;
+    flex    : 1;
+
+    span {
+        flex       : 1;
+        padding    : 0 1em;
+        text-align : left;
+
+        &:last-child {
+            text-align : right;
+        }
+    }
+}

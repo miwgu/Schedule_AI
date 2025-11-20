@@ -1,0 +1,187 @@
+body:not(.b-theme-classic-dark) .b-grid-subgrid-normal{
+  background:#f3f4f5;
+}
+body:not(.b-theme-classic-dark) .b-column-line{
+  border-color:#d8d9da;
+}
+body:not(.b-theme-classic-dark) .b-grid-headers-locked .b-grid-header{
+  background:#fff;
+  color:#000;
+}
+body:not(.b-theme-classic-dark) .b-sch-event{
+  background-color:#fff;
+  box-shadow:1px 2px 4px #ddd;
+}
+body:not(.b-theme-classic-dark) .b-sch-event .b-sch-event-content{
+  color:#333 !important;
+}
+body:not(.b-theme-classic-dark) .b-sch-event i{
+  background:#fff;
+  box-shadow:0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.3);
+}
+body:not(.b-theme-classic-dark) .b-sch-event i:hover{
+  color:#666;
+}
+body:not(.b-theme-classic-dark) .b-sch-event .label{
+  background:hsl(37, 100%, 94%);
+  color:hsl(34, 72%, 48%);
+}
+body:not(.b-theme-classic-dark) .b-sch-event .label2{
+  background:#f2f1fe;
+  color:#848abf;
+}
+body:not(.b-theme-classic-dark) .b-sch-event .scheduleinfo{
+  color:#aaa;
+}
+
+.b-theme-classic-dark .b-resource-avatar{
+  border:1px solid #333;
+}
+.b-theme-classic-dark .b-sch-event{
+  box-shadow:1px 1px 3px #222;
+  background-color:#333;
+}
+.b-theme-classic-dark .b-sch-event i{
+  background:#222;
+  box-shadow:0 1px 2px 0 #333, 0 1px 3px 1px #333;
+}
+.b-theme-classic-dark .b-sch-event i:hover{
+  color:#bbb;
+}
+.b-theme-classic-dark .b-sch-event .label{
+  background:rgba(255, 249, 239, 0.1333333333);
+}
+.b-theme-classic-dark .b-sch-event .label2{
+  background:rgba(242, 241, 254, 0.1333333333);
+}
+.b-theme-classic-dark .b-sch-event .scheduleinfo{
+  color:#aaa;
+}
+
+.b-sch-event-wrap:hover{
+  z-index:106 !important;
+}
+
+.b-sch-event{
+  border-radius:0.5em;
+}
+.b-sch-event-hover .b-sch-event i, .b-sch-event-wrap:hover .b-sch-event i{
+  pointer-events:all;
+  opacity:1;
+}
+.b-sch-event-hover .b-sch-event .buttons-right-container, .b-sch-event-wrap:hover .b-sch-event .buttons-right-container{
+  pointer-events:all;
+}
+
+.b-grid-header-container{
+  box-shadow:none;
+  border-bottom:none;
+}
+
+.b-grid-row{
+  border-bottom:0;
+}
+
+.b-sch-event-content{
+  flex-direction:column;
+  width:100%;
+  margin:0 !important;
+  padding:0.1em 0.7em;
+  height:100%;
+  justify-content:space-around;
+}
+.b-sch-event-content .header,
+.b-sch-event-content .footer{
+  display:flex;
+}
+.b-sch-event-content .header{
+  align-items:flex-start;
+}
+.b-sch-event-content .header .scheduleinfo{
+  display:flex;
+  align-items:center;
+  height:100%;
+  margin-inline-start:auto;
+  font-size:0.8em;
+  padding-inline-start:1em;
+}
+.b-sch-event-content .footer{
+  align-items:center;
+}
+.b-sch-event-content .footer .label,
+.b-sch-event-content .footer .label2{
+  padding:0.2em 0.8em;
+  border-radius:1em;
+  font-size:0.8em;
+  margin-inline-end:0.5em;
+}
+.b-sch-event-content i{
+  width:2em;
+  height:2em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1em;
+  border-radius:50%;
+  color:#999;
+  opacity:0;
+  pointer-events:none;
+}
+.b-sch-event-content .b-fa-chevron-left{
+  position:absolute;
+  inset-inline-start:-1em;
+}
+.b-sch-event-content .buttons-right-container{
+  position:absolute;
+  inset-inline-end:-4.5em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:visible !important;
+  pointer-events:none;
+}
+.b-sch-event-content .b-fa-chevron-right{
+  inset-inline-end:-2.5em;
+}
+.b-sch-event-content .b-fa-link{
+  inset-inline-end:-5.5em;
+}
+.b-active .b-sch-event-content, .b-sch-event-hover .b-sch-event-content, .b-sch-event-wrap:hover .b-sch-event-content{
+  overflow:visible !important;
+}
+
+.label{
+  color:#f1d2aa;
+}
+
+.label2{
+  color:#848abf;
+}
+
+.b-sch-header-text{
+  transition:font-weight 0.3s;
+}
+.b-sch-header-timeaxis-cell.highlight .b-sch-header-text, .b-sch-header-timeaxis-cell:hover .b-sch-header-text{
+  font-weight:bold;
+}
+
+.b-sch-scheduletip.b-html{
+  min-width:6em !important;
+  border-radius:2em;
+}
+.b-sch-scheduletip.b-html .b-sch-clock{
+  display:none;
+}
+.b-sch-scheduletip.b-html .b-sch-clock-text{
+  margin-inline-start:0;
+}
+.b-sch-scheduletip.b-html .b-popup-content{
+  margin-block:0.3em;
+}
+
+.b-rtl .b-fa-chevron-left:before,
+.b-rtl .b-fa-chevron-right:before{
+  transform:rotate(180deg);
+}
+
+/*# sourceMappingURL=app.css.map */

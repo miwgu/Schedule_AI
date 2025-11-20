@@ -1,0 +1,32 @@
+<!-- BryntumDemoHeader component is used for Bryntum example styling only and can be removed -->
+<bryntum-demo-header></bryntum-demo-header>
+
+<div class = "demo-toolbar align-right">
+    <bryntum-checkbox
+        text = "Stripe Feature"
+        [checked] = false
+        (onAction) = "toggleStripeFeature($event)"
+    ></bryntum-checkbox>
+    <bryntum-checkbox
+        text = "Column Lines Feature"
+        [checked] = true
+        (onAction) = "toggleColumnLinesFeature($event)"
+    ></bryntum-checkbox>
+</div>
+<bryntum-scheduler
+    #scheduler
+    [barMargin] = "schedulerProps.barMargin"
+    [columns] = "schedulerProps.columns"
+    [endDate] = "schedulerProps.endDate"
+    [events] = "schedulerProps.events"
+    [mode] = "schedulerProps.mode"
+    [resourceImagePath] = "schedulerProps.resourceImagePath"
+    [resources] = "schedulerProps.resources"
+    [resourceTimeRanges] = "schedulerProps.resourceTimeRanges"
+    [resourceTimeRangesFeature] = "schedulerProps.resourceTimeRangesFeature"
+    [rowHeight] = "schedulerProps.rowHeight"
+    [startDate] = "schedulerProps.startDate"
+    [viewPreset] = "schedulerProps.viewPreset"
+    [stripeFeature] = "stripeFeature"
+    [columnLinesFeature] = "columnLinesFeature"
+></bryntum-scheduler>

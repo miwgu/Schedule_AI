@@ -1,0 +1,38 @@
+@import '../variables';
+
+.b-treesummary {
+    .b-tick-cell-canvas {
+        z-index : $resourcetimerange-zindex;
+    }
+}
+
+.b-sch-tick-summary-cell {
+    position        : absolute;
+    contain         : strict;
+
+    align-items     : center;
+    justify-content : center;
+    pointer-events  : all;
+
+    .b-tree-summary-cell {
+        font-size   : 14px;
+    }
+
+    & > div {
+        height      : 100%;
+    }
+}
+
+.b-tree-summary-cell {
+    display         : flex;
+    flex            : 1;
+    justify-content : center;
+    height          : 100%;
+    gap             : 1px;
+    align-items     : center;
+    font-weight     : 400;
+
+    &:empty {
+        visibility : hidden;
+    }
+}

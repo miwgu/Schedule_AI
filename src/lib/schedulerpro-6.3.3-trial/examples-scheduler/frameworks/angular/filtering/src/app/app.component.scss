@@ -1,0 +1,21 @@
+@import "@bryntum/schedulerpro/schedulerpro.material.css";
+@import "@bryntum/demo-resources/scss/example-webpack.scss";
+
+bryntum-scheduler {
+    flex : 1;
+
+    .b-sch-event {
+        border-radius : 3px;
+    }
+
+    &.b-highlighting {
+        .b-sch-event {
+            opacity : 0.2;
+
+            &.b-match {
+                opacity    : 1;
+                box-shadow : 0 0 10px red;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@import '../variables';
+
+svg.b-sch-dependencies-canvas {
+    .b-sch-dependency {
+        &.b-inactive {
+            stroke-dasharray : 9 3;
+        }
+    }
+}

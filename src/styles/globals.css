@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* without Tailwind minumum setup */
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+}
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* SchedulerPro event colors */
+.event-gray {
+  background-color: #808080 !important;  /* Shift */
+}
+
+.event-orange {
+  background-color: #FFA500 !important;  /* Break */
+}
+
+.event-blue {
+  background-color: #1E90FF !important;  /* Visit */
+}
+
+/* もしバーを少し小さくしたい場合 */
+.b-event {
+  height: 30px !important; /* デフォルトはもっと大きいので調整 */
+  line-height: 30px !important;
+  font-size: 0.85rem !important;
+}
+

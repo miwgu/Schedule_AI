@@ -1,0 +1,49 @@
+// Style contents in the button column
+.b-grid-cell.b-buttoncell {
+    padding-inline  : 0;
+    flex-wrap       : wrap;
+    align-content   : flex-start;
+    justify-content : center;
+
+    // Collapse / expand icon
+    .b-fa-chevron-down {
+        transition : transform 0.3s;
+    }
+}
+
+// Style transparent buttons (used in the button column)
+.b-transparent.b-button {
+    height     : auto;
+    width      : auto;
+    padding    : 1em 0.5em;
+    background : none !important;
+    min-width  : 1em;
+    min-height : 1em;
+
+    &, &.b-pressed {
+        color : inherit;
+    }
+
+    &:hover i {
+        filter : brightness(80%);
+    }
+}
+
+.b-row-expanded .b-fa-chevron-down {
+    transform : rotate(180deg);
+}
+
+.b-scale {
+    position       : absolute;
+    bottom         : 0;
+    right          : 0;
+    font-size      : 0.6em;
+    opacity        : 0;
+    pointer-events : none;
+
+    .b-row-expanded & {
+        transition : opacity 0.3s, height 0.3s !important;
+        opacity    : 1;
+        height     : 100px;
+    }
+}

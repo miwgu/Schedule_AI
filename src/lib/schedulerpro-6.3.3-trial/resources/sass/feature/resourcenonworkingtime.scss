@@ -1,0 +1,9 @@
+@import '../variables';
+
+.b-resource-non-working-time-canvas {
+    z-index : $resourcenonworkingtime-zindex;
+}
+
+.b-sch-resourcenonworkingtime {
+    background-color : $range-background-color;
+}

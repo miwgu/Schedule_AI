@@ -1,0 +1,44 @@
+:root{
+  --event-height:40px;
+  --background-color:hsl(200deg 100% 20%);
+}
+
+.b-timeaxissubgrid{
+  background:#bbb;
+}
+.b-timeaxissubgrid .b-grid-row{
+  border-bottom:none;
+}
+
+.b-nested-events-parent > .b-sch-event{
+  --event-background-color:var(--background-color);
+  border-radius:5px;
+  box-shadow:0 0 5px rgba(0, 0, 0, 0.3137254902);
+}
+.b-nested-events-parent > .b-sch-event > .b-sch-event-content{
+  color:#fff;
+  align-items:center;
+  margin:0;
+  max-width:100%;
+  padding-inline:0.5em;
+  display:block;
+  line-height:2em;
+}
+.b-nested-events-parent .b-nested-events-container{
+  background:repeating-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) var(--event-height), var(--background-color), var(--background-color) 41px) rgba(255, 255, 255, 0.0901960784);
+  border-radius:0 0 5px 5px;
+}
+
+.b-sch-event-wrap.b-nested-event.b-drag-invalid .b-sch-event{
+  background:#FF0000 !important;
+}
+
+.b-sch-event-wrap.b-drag-proxy .b-sch-event{
+  grid-area:unset;
+}
+
+.b-theme-classic-dark .b-timeaxissubgrid{
+  background:#222;
+}
+
+/*# sourceMappingURL=app.css.map */

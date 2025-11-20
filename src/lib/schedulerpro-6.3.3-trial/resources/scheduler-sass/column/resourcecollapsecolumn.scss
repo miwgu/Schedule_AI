@@ -1,0 +1,14 @@
+@import '../variables';
+
+.b-resourcecollapse-cell {
+    .b-icon {
+        background : transparent;
+        border     : none;
+        transition : transform 0.2s !important;
+        cursor     : pointer;
+
+        &.b-flip {
+            transform : rotate(180deg);
+        }
+    }
+}

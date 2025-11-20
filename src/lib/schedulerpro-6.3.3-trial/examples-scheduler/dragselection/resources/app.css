@@ -1,0 +1,20 @@
+.b-dragselect-rect{
+  background:rgba(49, 131, 254, 0.0941176471);
+  border:1px solid rgba(49, 131, 254, 0.1568627451);
+}
+
+[data-ref=selectionSummary] strong{
+  font-weight:500;
+}
+[data-ref=selectionSummary] strong, [data-ref=selectionSummary] i{
+  margin-inline:1em 0.4em;
+}
+[data-ref=selectionSummary] i{
+  color:#0276f8;
+}
+[data-ref=selectionSummary] span{
+  padding-inline-start:0.2em;
+  min-width:5em;
+}
+
+/*# sourceMappingURL=app.css.map */

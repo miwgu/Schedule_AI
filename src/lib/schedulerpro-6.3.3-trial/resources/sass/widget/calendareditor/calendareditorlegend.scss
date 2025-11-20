@@ -1,0 +1,74 @@
+@import '../../variables';
+
+.b-calendareditorlegend {
+
+    display              : block;
+    padding              : 0;
+    padding-inline-start : 0.5em;
+
+    & > ul {
+        padding    : 0;
+        margin-top : 0;
+
+        li {
+            display       : flex;
+            align-items   : center;
+            margin-bottom : 0.5em;
+
+            &.b-interval-legend:hover {
+                cursor          : pointer;
+                text-decoration : underline;
+            }
+
+            &:before {
+                content           : '';
+                display           : inline-block;
+                text-align        : center;
+                margin-inline-end : 1em;
+                width             : 1.5em;
+                height            : 1.5em;
+                line-height       : 1.5em;
+                background        : currentColor;
+                border-radius     : 0.25em;
+                vertical-align    : middle;
+            }
+
+            &.b-working-day,
+            &.b-nonworking-day {
+                line-height : 2em;
+            }
+
+            &.b-working-day {
+                margin-bottom : 0.8em;
+            }
+
+            &.b-nonworking-day {
+                margin-bottom : 1.5em;
+            }
+
+            &.b-nonworking-day:before,
+            &.b-working-day:before {
+                border        : solid 1px #bbb;
+                border-radius : 50%;
+            }
+
+            &.b-nonworking-day:before {
+                background-color : $nonworking-day-background-color;
+            }
+
+            &.b-working-day:before {
+                background-color : $working-day-background-color;
+            }
+
+            &.b-interval-legend:before {
+                color   : var(--interval-badge-color);
+                display : inline-block;
+            }
+
+            &.b-interval-legend:hover:before {
+                text-decoration : none;
+            }
+        }
+
+    }
+}

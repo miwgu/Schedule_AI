@@ -1,0 +1,15 @@
+// Depart displays icon to the right of its text
+.depart {
+    .b-sch-event-content {
+        display : flex;
+    }
+
+    i {
+        order               : 1;
+        margin-inline-start : .5em;
+    }
+}
+
+.b-demo-toolbar .b-toolbar-content {
+    justify-content : flex-end;
+}

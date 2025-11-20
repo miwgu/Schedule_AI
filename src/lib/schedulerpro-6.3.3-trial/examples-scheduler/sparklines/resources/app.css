@@ -1,0 +1,13 @@
+.b-timeranges-header-canvas .b-sch-range,
+.b-timeranges-header-canvas .b-sch-line label{
+  display:none;
+}
+.b-timeranges-header-canvas i{
+  margin-inline-end:0;
+}
+
+.b-timeranges-body-canvas .b-sch-timerange{
+  z-index:10;
+}
+
+/*# sourceMappingURL=app.css.map */

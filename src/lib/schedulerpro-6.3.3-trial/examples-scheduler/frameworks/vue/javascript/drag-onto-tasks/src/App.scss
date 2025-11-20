@@ -1,0 +1,143 @@
+/**
+ * Application global styles
+ */
+
+@import '~@bryntum/schedulerpro/schedulerpro.stockholm.css';
+@import '~@bryntum/demo-resources/scss/example-webpack.scss';
+
+.b-sch-event-wrap .b-sch-event {
+    border-radius       : 3px;
+    box-shadow          : 0 1px 1px 0 rgba(0, 0, 0, .25);
+    align-items         : stretch;
+
+    border-inline-start : 0 !important;
+    border-top-width    : 7px !important;
+    border-top-style    : solid;
+
+    .b-sch-event-content {
+        display         : flex;
+        flex-direction  : column;
+        align-items     : flex-start;
+        justify-content : space-around;
+        font-size       : 1.1em;
+        padding         : 0.5em 0;
+    }
+}
+
+.content-container {
+    flex           : 1 1 0;
+    display        : flex;
+    flex-direction : row;
+    align-items    : stretch;
+
+    > * {
+        height : auto;
+    }
+
+    [data-ref=schedule] {
+        flex : 1;
+    }
+
+    .equipmentGrid {
+        flex                : 0 0 140px;
+        border-inline-start : 2px solid #aaa;
+
+        .b-grid-header-text {
+            display : none;
+        }
+
+        .b-grid-cell {
+            cursor : pointer;
+        }
+    }
+}
+
+.b-equipment {
+    flex-direction  : column;
+    justify-content : center;
+
+    i {
+        margin-inline-end : 10px;
+        font-size         : 2em;
+        margin-bottom     : 0.3em;
+    }
+}
+
+i.b-equipment-icon {
+    color : #4887e5;
+
+    .b-theme-classic-dark & {
+        color : lighten(#4887e5, 10);
+    }
+
+    &.b-dragging {
+        position        : absolute;
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        border-radius   : 50%;
+        opacity         : 1;
+
+        &:not(.b-drag-final-transition) {
+            width      : 3em;
+            height     : 3em;
+            font-size  : 1.2em;
+            background : white;
+            box-shadow : 0 3px 6px #ddddddaa;
+
+            &:not(.b-drag-invalid) {
+                color : #27ca37;
+            }
+        }
+
+        .b-theme-classic-dark & {
+            background : #333;
+        }
+    }
+
+    &.b-drag-final-transition {
+        font-size : 1em;
+        width     : 1em;
+        height    : 1em;
+    }
+
+    &.b-drag-final-transition,
+    &.b-aborting {
+        transition-property : transform, font-size, width, height;
+        transition-duration : 0.5s;
+    }
+}
+
+.b-sch-event-startdate {
+    opacity       : 0.6;
+    margin-bottom : 0.2em;
+}
+
+.b-sch-event-name {
+    font-weight : 600;
+    flex        : 1;
+}
+
+.b-sch-event-header,
+.b-sch-event-equipment-wrap {
+    display     : flex;
+    align-items : center;
+}
+
+.b-sch-event .b-sch-event-equipment-wrap {
+    padding : 0;
+    margin  : 0;
+    min-height: 1.7em;
+
+    li.b-fa {
+        margin-inline-end : 0.7em;
+    }
+}
+
+.b-grid-header {
+    height : 57px;
+}
+
+.b-filter-bar-field {
+    margin : 0;
+}

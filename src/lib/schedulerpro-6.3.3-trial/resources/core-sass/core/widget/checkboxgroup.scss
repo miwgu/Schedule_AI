@@ -1,0 +1,22 @@
+.b-panel.b-checkboxgroup {
+    .b-fieldset-content {
+        gap : 0;
+
+        &:not(.b-inline) {
+            padding : var(--autocontainer-gap);
+        }
+
+        &.b-inline {
+            flex-wrap : wrap;
+
+            label {
+                white-space : nowrap;
+            }
+        }
+    }
+
+    &.b-invalid .b-checkbox label:before {
+        outline        : 1px solid $red;
+        outline-offset : 2px
+    }
+}

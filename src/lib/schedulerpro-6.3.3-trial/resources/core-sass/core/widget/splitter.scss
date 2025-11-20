@@ -1,0 +1,250 @@
+@use "sass:color";
+@import '../../variables';
+
+.b-splitter {
+    background-color : $splitter-background-color;
+    flex             : 0 0 $splitter-size;
+    position         : relative;
+    touch-action     : none;
+
+    // When hovered or being moved, the inner pops out to cover a larger area.
+    // How much it does that by depends on whether the pointer capability is coarse or fine.
+    @media (pointer:coarse) {
+        --splitter-inner-size       : #{$touch-splitter-size};
+        --splitter-button-size      : 1.3em;
+    }
+    @media (pointer:fine) {
+        --splitter-inner-size       : 0;
+        --splitter-button-size      : 1em;
+    }
+
+    &.b-disabled {
+        flex           : 0 0 $splitter-size-disabled;
+        pointer-events : none;
+    }
+
+    // Allow any touch handle to overflow
+    &:not(.b-disabled) {
+        overflow : visible;
+    }
+
+    // Define the hover/move inner
+    &::after {
+        content            : '';
+        position           : absolute;
+        inset-inline-start : 0;
+        top                : 0;
+        z-index            : 1;
+    }
+
+    &.b-hover,
+    &.b-moving {
+        &::after {
+            background-color : $splitter-background-color;
+        }
+
+        // Display splitter buttons on hover
+        .b-splitter-buttons {
+            display : flex;
+        }
+    }
+
+    &.b-show-buttons {
+        .b-splitter-buttons {
+            display : flex;
+        }
+    }
+
+    &.b-horizontal {
+        min-height : $splitter-size;
+
+        &:not(.b-drag-disabled) {
+            cursor : ns-resize;
+        }
+
+        &.b-disabled {
+            min-height : $splitter-size-disabled;
+        }
+
+        // Default position and size of inner.
+        // These vars are defined based upon whether pointer is coarse
+        &::after {
+            height    : var(--splitter-inner-size);
+            width     : 100%;
+        }
+
+        // When hovered or being moved, the inner pops out to cover a larger area.
+        &:hover:not(.b-drag-disabled),
+        &.b-hover:not(.b-drag-disabled),
+        &.b-moving {
+            &::after {
+                top    : calc((#{$splitter-hover-size} - #{$splitter-size}) / -2);
+                height : #{$splitter-hover-size};
+            }
+        }
+
+        // Rotate buttons for horizontal splitter
+        .b-splitter-buttons {
+            margin-top : .2em;
+            transform : translate(-50%, -50%) rotate(90deg);
+        }
+    }
+
+    &.b-vertical {
+        min-width : $splitter-size;
+
+        &:not(.b-drag-disabled) {
+            cursor : ew-resize;
+        }
+
+        &.b-disabled {
+            min-width : $splitter-size-disabled;
+        }
+
+        // Default position and size of inner
+        &::after {
+            width      : var(--splitter-inner-size);
+            height     : 100%;
+        }
+
+        // When hovered or being moved, the inner pops out to cover a larger area.
+        &:hover:not(.b-drag-disabled),
+        &.b-hover:not(.b-drag-disabled),
+        &.b-moving {
+            &::after {
+                inset-inline-start : calc((#{$splitter-hover-size} - #{$splitter-size}) / -2);
+                width              : #{$splitter-hover-size};
+            }
+        }
+    }
+
+    // Hide splitter if not having two sibling
+    &:last-child,
+    &:first-child {
+        visibility : hidden;
+        flex       : 0;
+        min-width  : 0;
+    }
+
+    //region Splitter buttons
+    .b-splitter-inner {
+        display    : flex;
+        background : $splitter-background-color;
+        position   : relative;
+        z-index    : 2;
+        height     : 100%;
+        width      : 100%;
+    }
+
+    // The div surrounding the buttons
+    .b-splitter-buttons {
+        display            : none;
+        position           : absolute;
+        height             : 2.4em;
+        width              : 2.4em;
+        font-size          : var(--splitter-button-size);
+        z-index            : 3;
+        inset-inline-start : 50%;
+        transform          : translate(-50%, -50%);
+        transition         : top 0.2s ease-in-out, inset-inline-start 0.2s ease-in-out;
+
+        &:has(.b-disabled) {
+            pointer-events: none;
+        }
+    }
+
+    .b-splitter-button-collapse,
+    .b-splitter-button-expand {
+        flex        : 1;
+        cursor      : pointer;
+        background  : $splitter-background-color;
+        display     : flex;
+        align-items : center;
+        position    : relative;
+        padding-top : .1em;
+
+        &:hover .b-splitter-button-icon {
+            color : $splitter-highlight-color;
+        }
+
+        &.b-disabled {
+            cursor     : default;
+            visibility : hidden !important;
+            pointer-events: none;
+        }
+
+        &:not(.b-disabled) {
+            pointer-events: auto;
+        }
+    }
+
+    .b-splitter-button-collapse {
+        border-top-left-radius    : 100% 50%;
+        border-bottom-left-radius : 100% 50%;
+        justify-content           : flex-end;
+    }
+
+    .b-splitter-button-expand {
+        border-top-right-radius    : 100% 50%;
+        border-bottom-right-radius : 100% 50%;
+    }
+
+    .b-splitter-button-icon {
+        cursor        : pointer;
+        color         : color.scale($splitter-icon-color, $lightness: -20%);
+        height        : 1.5em;
+        font-size     : 1.3em;
+        font-weight   : 400;
+        align-content : center;
+    }
+
+    //region Touch
+    .b-splitter-touch-area {
+        width              : $touch-splitter-size;
+        inset-inline-start : calc((#{$touch-splitter-size} - #{$splitter-size}) / -2);
+        position           : absolute;
+        top                : 0;
+        height             : 100%;
+    }
+
+    .b-splitter-button-touch-area {
+        height   : 3em;
+        top      : -.3em;
+        width    : 2em;
+        position : absolute;
+    }
+
+    .b-splitter-button-collapse .b-splitter-button-touch-area {
+        inset-inline-start : -.9em;
+    }
+
+    .b-splitter-button-expand .b-splitter-button-touch-area {
+        inset-inline-end : -.9em;
+    }
+    //endregion
+
+    //region RTL
+    &.b-rtl {
+        &.b-horizontal .b-splitter-buttons {
+            transform : translate(50%, -50%) rotate(-90deg);
+        }
+
+        &.b-vertical .b-splitter-buttons {
+            transform : translate(50%, -50%) scaleX(-1);
+        }
+
+        .b-splitter-button-collapse,
+        .b-splitter-button-expand {
+            transform : scaleX(-1);
+        }
+
+        .b-splitter-button-expand {
+            justify-content : flex-end;
+        }
+
+        .b-splitter-button-collapse {
+            justify-content : flex-start;
+        }
+    }
+    //endregion
+}

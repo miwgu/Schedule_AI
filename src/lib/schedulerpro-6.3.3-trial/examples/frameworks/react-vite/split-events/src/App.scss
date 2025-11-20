@@ -1,0 +1,12 @@
+/* Demo styling is used for Bryntum example only. Not required for application */
+@import '@bryntum/demo-resources/scss/example.scss';
+
+.b-jsx-container {
+    display : flex;
+
+    &.b-event-text-wrap {
+        .b-fa {
+            margin-inline-end : 0.5em;
+        }
+    }
+}

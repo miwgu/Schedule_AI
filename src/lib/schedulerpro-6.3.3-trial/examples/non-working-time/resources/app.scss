@@ -1,0 +1,38 @@
+.b-sch-event-wrap .b-sch-event:not(.b-milestone) .b-sch-event-content {
+    width          : 100%;
+    font-size      : 14px;
+    flex-direction : column;
+    overflow       : hidden;
+}
+
+.assigned {
+    overflow   : visible!important;
+    margin-top : .3em;
+
+    img {
+        width             : 1.5em;
+        height            : 1.5em;
+        border-radius     : 100%;
+        border            : 1px solid;
+        border-color      : inherit;
+        margin-inline-end : .3em;
+        transition        : transform .2s;
+    }
+
+    img:hover {
+        transform : scale(2);
+        z-index   : 1;
+    }
+}
+
+.b-sch-event * {
+    border-color : inherit;
+}
+
+.b-sch-nonworkingtime.factoryShutdown {
+    background : transparent repeating-linear-gradient(-55deg, #dddddd99, #dddddd99 10px, #eeeeee99 5px, #eeeeee99 20px);
+
+    .b-grid-header & {
+        opacity: 0.7;
+    }
+}

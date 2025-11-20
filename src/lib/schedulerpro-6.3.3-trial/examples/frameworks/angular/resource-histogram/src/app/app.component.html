@@ -1,0 +1,57 @@
+<!-- BryntumDemoHeader component is used for Bryntum example styling only and can be removed -->
+<bryntum-demo-header></bryntum-demo-header>
+
+<div class = "demo-toolbar">
+    <bryntum-button
+        icon = "b-icon b-icon-search-plus"
+        text = "Zoom in"
+        (onAction) = "onZoomIn()"
+    ></bryntum-button>
+    <bryntum-button
+        icon = "b-icon b-icon-search-minus"
+        text = "Zoom out"
+        (onAction) = "onZoomOut()"
+    ></bryntum-button>
+    <div class = "spacer"></div>
+    <bryntum-checkbox
+        text = "Show bar texts"
+        tooltip = "Check to show resource allocation in the bars"
+        (onAction) = "onCheckboxAction($event, 'showBarText')"
+    ></bryntum-checkbox>
+    <bryntum-checkbox
+        text = "Show max allocation"
+        tooltip = "Check to display max resource allocation line"
+        checked = true
+        (onAction) = "onCheckboxAction($event, 'showMaxEffort')"
+    ></bryntum-checkbox>
+    <bryntum-checkbox
+        text = "Enable bar tooltip"
+        tooltip = "Check to show tooltips when moving mouse over bars"
+        checked = true
+        (onAction) = "onCheckboxAction($event, 'showBarTip')"
+    ></bryntum-checkbox>
+</div>
+
+<div id = "container">
+    <bryntum-scheduler-pro
+        #scheduler
+        [startDate] = "schedulerProProps.startDate"
+        [endDate] = "schedulerProProps.endDate"
+        [viewPreset] = "schedulerProProps.viewPreset"
+        [eventStyle] = "schedulerProProps.eventStyle"
+        [tickSize] = "schedulerProProps.tickSize"
+        [columns] = "schedulerProProps.columns"
+        [resourceImagePath] = "schedulerProProps.resourceImagePath"
+        [project] = "schedulerProProps.project"
+    ></bryntum-scheduler-pro>
+    <bryntum-splitter></bryntum-splitter>
+    <bryntum-resource-histogram
+        #histogram
+        [project] = "histogramProps.project"
+        [columns] = "histogramProps.columns"
+        [rowHeight] = "histogramProps.rowHeight"
+        [showBarTip] = "histogramProps.showBarTip"
+        [resourceImagePath] = "histogramProps.resourceImagePath"
+        [scheduleTooltipFeature] = "histogramProps.scheduleTooltipFeature"
+    ></bryntum-resource-histogram>
+</div>

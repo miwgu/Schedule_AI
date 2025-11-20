@@ -1,0 +1,42 @@
+@import '../../variables';
+
+.b-calendareditordatepicker {
+
+    .b-calendar-cell {
+        &:not(.b-selected-date) .b-datepicker-cell-inner {
+
+            &.b-nonworking-day {
+                background-color : $nonworking-day-background-color;
+            }
+
+            &.b-working-day {
+                background-color : $working-day-background-color;
+            }
+
+        }
+
+        .b-datepicker-cell-inner {
+            .b-interval-badges {
+                position : absolute;
+                bottom   : 0;
+                inset-inline-start : 0.4em;
+                display  : flex;
+
+                .b-interval-badge {
+                    &:before {
+                        content         : " ";
+                        min-width       : 0.5em;
+                        min-height      : 0.5em;
+                        font-size       : 0.5em;
+                        z-index         : 5;
+                        display         : flex;
+                        justify-content : center;
+                        align-items     : center;
+                        background-color : var(--interval-badge-color);
+                    }
+                }
+            }
+        }
+    }
+
+}

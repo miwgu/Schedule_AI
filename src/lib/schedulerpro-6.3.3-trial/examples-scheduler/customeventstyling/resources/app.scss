@@ -1,0 +1,132 @@
+.b-sch-event-wrap {
+    height : .5em;
+}
+
+.b-milestone-wrap {
+    transform : translateY(.6em);
+
+    &.b-sch-event-wrap {
+        .b-sch-event.b-milestone {
+            font-size : 36%;
+
+            label {
+                padding-inline-start : 0.9em;
+            }
+        }
+    }
+}
+
+.b-grid-subgrid-locked {
+    background-color : #f7f7f7;
+
+    .b-grid-row {
+        border-bottom-color : #f7f7f7;
+
+        dl {
+            flex : 1;
+        }
+
+        img {
+            width            : 3em;
+            height           : 3em;
+            background-color : #b0b0b8;
+            padding          : 1px;
+            order            : 1;
+        }
+    }
+}
+
+.b-theme-classic-dark {
+    .b-grid-subgrid-locked {
+        background-color : #2b2b2f;
+
+        .b-grid-row {
+            border-bottom-color : #2b2b2f;
+        }
+
+        img {
+            background-color : #cdcecf;
+        }
+    }
+}
+
+.b-theme-classic-light {
+    .b-grid-subgrid-locked {
+        background-color : #fcfcfc;
+
+        .b-grid-row {
+            border-bottom-color : #fcfcfc;
+
+            dd {
+                color : #bbb;
+            }
+
+            img {
+                box-shadow : 0 .1em .25em 0 #BBB;
+            }
+
+            &.b-hover,
+            &.b-selected {
+                img {
+                    box-shadow : 0 .2em .5em 0 #AAA;
+                }
+            }
+        }
+    }
+}
+
+.b-grid-row {
+    border-bottom-style : dashed;
+}
+
+.b-column-line {
+    border-inline-start-style : dashed;
+}
+
+.b-column-line-major {
+    border-inline-start-style : dotted;
+}
+
+.b-sch-event {
+    overflow : visible;
+    padding  : 0 0.2em;
+
+    .b-fa-square:before {
+        display   : block;
+        transform : rotate(45deg);
+    }
+
+    .b-start-marker,
+    .b-end-marker {
+        position  : absolute;
+        color     : #bbb;
+        top       : 50%;
+        margin    : 0 !important;
+        transform : translateY(-50%);
+        font-size : 1.2em;
+    }
+
+    &:not(.b-rtl) {
+        .b-start-marker {
+            left : -0.4em;
+        }
+
+        .b-end-marker {
+            right : -0.4em;
+        }
+    }
+
+    &.b-rtl {
+        .b-start-marker {
+            right : -0.4em;
+        }
+
+        .b-end-marker {
+            left : -0.4em;
+        }
+    }
+}
+
+.b-sch-header-text {
+    text-align : center;
+}

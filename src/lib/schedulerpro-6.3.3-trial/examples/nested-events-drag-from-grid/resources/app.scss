@@ -1,0 +1,60 @@
+:root {
+    --event-height     : 40px;
+    --background-color : hsl(200deg 100% 20%);
+}
+
+.b-timeaxissubgrid {
+    background : #bbb;
+
+    .b-grid-row {
+        border-bottom : none;
+    }
+}
+
+.b-nested-events-parent {
+    > .b-sch-event {
+        --event-background-color : var(--background-color);
+        border-radius            : 5px;
+        box-shadow               : 0 0 5px #00000050;
+
+        > .b-sch-event-content {
+            color          : #fff;
+            align-items    : center;
+            margin         : 0;
+            max-width      : 100%;
+            padding-inline : .5em;
+            // To get overflow ellipsis
+            display        : block;
+            line-height    : 2em;
+        }
+    }
+
+    .b-nested-events-container {
+        background    : repeating-linear-gradient(#00000000, #00000000 var(--event-height), var(--background-color), var(--background-color) 41px) #ffffff17;
+        border-radius : 0 0 5px 5px;
+    }
+}
+
+.b-sch-event-wrap.b-nested-event {
+    &.b-drag-invalid {
+        .b-sch-event {
+            // Important needed to beat color applied as style in demo
+            background : #FF0000 !important;
+        }
+    }
+}
+
+.b-sch-event-wrap.b-drag-proxy {
+    .b-sch-event {
+        // Grid areas not defined for the drag proxy, fill it
+        grid-area : unset;
+    }
+}
+
+.b-theme-classic-dark {
+    .b-timeaxissubgrid {
+        background : #222;
+    }
+}
+
+

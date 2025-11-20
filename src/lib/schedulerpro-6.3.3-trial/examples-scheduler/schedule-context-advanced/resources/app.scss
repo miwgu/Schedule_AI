@@ -1,0 +1,29 @@
+.context-button {
+    background : transparent;
+    padding    : 4px;
+    transition : transform .04s;
+
+    .b-theme-classic-dark & {
+        background : #333;
+
+        .b-button {
+            filter : brightness(1.3);
+        }
+    }
+
+    .b-button {
+        --button-text-opacity : .8;
+    }
+}
+
+.context-widget-at-top {
+    .context-button {
+        align-items : baseline;
+        max-height  : 40px;
+    }
+}
+
+.b-resource-unavailable {
+    background      : #f0f0f0 linear-gradient(-45deg, rgba(0, 0, 0, 0) 46%, #ccc 49%, #ccc 51%, rgba(0, 0, 0, 0) 55%);
+    background-size : 6px 6px !important;
+}

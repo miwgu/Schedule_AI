@@ -1,0 +1,77 @@
+@import '../../variables';
+
+// Shared between the Week tab and the Exception tab
+.b-calendareditorbasetab {
+    flex-flow : nowrap;
+
+    .b-grid[data-ref="grid"] {
+        flex          : 0 0 15em;
+        border        : $field-border-width solid $field-border-color;
+        border-radius : $field-border-radius;
+
+        .b-toolbar-content {
+            padding : 0;
+        }
+
+        .b-grid-row.b-invalid .b-grid-cell {
+            color : $field-invalid-border-color;
+        }
+
+        .b-grid-cell.b-color-cell {
+            .b-color-cell-inner {
+                border-radius : 0.3em;
+            }
+        }
+
+        .b-grid-cell[data-column=name] {
+            padding : 0;
+        }
+
+    }
+
+    .b-calendareditor-form {
+        display               : grid;
+        grid-template-columns : max-content 1fr 4em max-content 1fr 4em;
+        flex                  : 1 1 0;
+
+        [data-ref="nameField"] .b-field-inner {
+            grid-column : span 4;
+        }
+
+        [data-ref="exceptionStartDateField"] .b-field-inner,
+        [data-ref="exceptionEndDateField"] .b-field-inner,
+        [data-ref="startDateField"] .b-field-inner,
+        [data-ref="endDateField"] .b-field-inner {
+            grid-column : span 2;
+        }
+
+        [data-ref="isWorkingField"] .b-radiogroup-body-wrap {
+            grid-column : span 5;
+        }
+
+        & > .b-field {
+            display : contents;
+        }
+
+        .b-span-row {
+            grid-column : 1 / -1;
+        }
+
+        .b-has-label.b-label-before .b-label {
+            margin-inline : 0.5em;
+        }
+    }
+
+    .b-widget[data-ref="panel"] {
+        padding-inline-start : .5em;
+        overflow-y           : auto;
+        flex                 : 1 1 0;
+        row-gap              : 1em;
+    }
+
+    .b-colorfield {
+        input {
+            display : none;
+        }
+    }
+}

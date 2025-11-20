@@ -1,0 +1,47 @@
+@import '@bryntum/schedulerpro/schedulerpro.material.css';
+
+// Demo styling is used for Bryntum example only. Not required for application
+@import '@bryntum/demo-resources/scss/example-webpack.scss';
+
+bryntum-scheduler {
+    flex : 1;
+}
+
+$meeting-eventtype-color     : purple;
+$internal-eventtype-color    : orange;
+$appointment-eventtype-color : green;
+
+.b-scheduler {
+    .b-sch-event,
+    .b-sch-event:hover,
+    .b-sch-event.b-sch-event-selected,
+    .b-sch-event.b-sch-event-selected:hover {
+        &.b-sch-eventtype-Meeting {
+            background-color : $meeting-eventtype-color;
+            border-color     : $meeting-eventtype-color;
+        }
+
+        &.b-sch-eventtype-Internal {
+            background-color : $internal-eventtype-color;
+            border-color     : $internal-eventtype-color;
+        }
+
+        &.b-sch-eventtype-Appointment {
+            background-color : $appointment-eventtype-color;
+            border-color     : $appointment-eventtype-color;
+        }
+    }
+}
+
+.b-sch-event-content {
+    display     : flex;
+    align-items : center;
+}
+
+.b-sch-event-header {
+    font-size : .8em;
+}
+
+.b-sch-event-footer {
+    font-weight : 400;
+}

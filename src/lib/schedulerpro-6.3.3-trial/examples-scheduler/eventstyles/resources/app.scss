@@ -1,0 +1,26 @@
+.color-box {
+    width             : 1em;
+    height            : 1em;
+    margin-inline-end : .5em;
+    display           : flex;
+    align-items       : center;
+    justify-content   : center;
+
+    &.b-sch-mixed {
+        background : linear-gradient(red, pink, purple, indigo, blue, cyan, teal, green, yellow, orange);
+    }
+
+    &.b-sch-custom::before {
+        content : '#';
+    }
+}
+
+.style-list .b-list-item {
+    height : 3em;
+
+    .b-sch-event-wrap {
+        height   : 2em;
+        width    : calc(100% - .5em);
+        position : relative;
+    }
+}

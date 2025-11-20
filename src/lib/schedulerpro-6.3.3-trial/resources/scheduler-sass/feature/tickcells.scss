@@ -1,0 +1,11 @@
+.b-sch-tick-cell {
+    position        : absolute;
+    contain         : strict;
+
+    display         : grid;
+    align-items     : center;
+    justify-content : center;
+    pointer-events  : all;
+
+    font-size       : 14px;
+}

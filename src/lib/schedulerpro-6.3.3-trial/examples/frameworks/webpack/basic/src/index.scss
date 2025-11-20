@@ -1,0 +1,25 @@
+// Import SCSS API styling
+@import '@bryntum/resources/sass/themes/stockholm.scss';
+
+// Header styling not required for application
+@import '@bryntum/resources/core-sass/core/widget/demoheader.scss';
+
+// Application styling
+
+html,
+body,
+#container,
+{
+    height      : 100%;
+    margin      : 0;
+    display     : flex;
+    font-size   : 14px;
+    font-family : Arial, sans-serif;
+}
+
+body,
+#container {
+    width          : 100%;
+    flex-direction : column;
+    flex           : 1;
+}

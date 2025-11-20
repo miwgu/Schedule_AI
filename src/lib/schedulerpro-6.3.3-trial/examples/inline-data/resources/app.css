@@ -1,0 +1,25 @@
+.b-vehicle-condition-column-cell{
+  font-size:0.8em;
+}
+
+.b-vehicle-condition-column-cell i::before{
+  margin-inline-end:0.5em;
+}
+
+.average{
+  color:#FFA500;
+}
+
+.good{
+  color:#008000;
+}
+
+.better{
+  color:#0000FF;
+}
+
+.best{
+  color:#FFD700;
+}
+
+/*# sourceMappingURL=app.css.map */

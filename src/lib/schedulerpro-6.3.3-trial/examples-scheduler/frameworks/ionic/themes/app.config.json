@@ -1,0 +1,29 @@
+{
+  "title": "Ionic + Angular Scheduler Themes Demo",
+  "description": "This demo shows how to include and switch themes in an Ionic application incorporating the Angular wrapper of the Bryntum Scheduler.",
+  "source": [
+    "angular.json",
+    "ionic.config.json",
+    "package.json",
+    "src/app/app-routing.module.ts",
+    "src/app/app.component.html",
+    "src/app/app.component.scss",
+    "src/app/app.component.spec.ts",
+    "src/app/app.component.ts",
+    "src/app/app.config.ts",
+    "src/app/app.module.ts",
+    "src/app/home/home.module.ts",
+    "src/app/home/home.page.html",
+    "src/app/home/home.page.scss",
+    "src/app/home/home.page.spec.ts",
+    "src/app/home/home.page.ts",
+    "src/assets/data/data.json",
+    "src/global.scss",
+    "src/index.html",
+    "src/main.ts",
+    "src/theme/variables.scss",
+    "src/tsconfig.app.json",
+    "src/tsconfig.spec.json",
+    "tsconfig.json"
+  ]
+}

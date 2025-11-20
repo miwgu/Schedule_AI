@@ -1,0 +1,7 @@
+/* Demo styling is used for Bryntum example only. Not required for application */
+@use '@bryntum/demo-resources/scss/example.scss';
+
+// Giving our scheduler some height
+#root {
+    height : 100vh;
+}

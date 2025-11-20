@@ -1,0 +1,238 @@
+#main {
+    display        : flex;
+    flex-direction : row;
+    flex           : 1 1 100%;
+    margin         : 3em;
+
+    .b-resourceheader {
+        height : 100%;
+    }
+}
+
+body.b-theme-classic {
+    .b-panel {
+        color : #222;
+    }
+}
+
+body:not(.b-theme-classic-dark,.b-theme-material,.b-theme-classic) {
+    .b-panel {
+        --panel-background-color : #fff;
+    }
+
+    .b-sch-header-timeaxis-cell,
+    .b-grid-header {
+        color : #222;
+    }
+
+    .b-grid-row.b-tree-parent-row {
+        border-block : .5px solid #e9eaeb;
+
+        &.b-tree-expanded {
+            box-shadow : rgba(0, 0, 0, 0.08) 0 2px 4px 0;
+        }
+
+        .b-tree-cell {
+            padding-inline-end : 0.3em;
+            font-weight        : 400;
+            color              : #333;
+        }
+    }
+
+    .b-daily-hours {
+        background : #f0f0f0;
+        color      : #777;
+    }
+
+    .b-grid-splitter {
+        background : #d8d9da;
+    }
+}
+
+.b-theme-classic-dark {
+    .b-panel {
+        --panel-background-color : #222;
+    }
+
+    .b-daily-hours {
+        background : #666;
+    }
+
+    .b-grid-header .b-sch-timerange {
+        label {
+            color : #3183fe;
+        }
+    }
+}
+
+.b-sch-event:not(.b-milestone) {
+    border-radius : .5em;
+
+    div.b-wrap {
+        display : flex;
+        width   : 100%;
+    }
+
+    i.b-fa {
+        margin-inline : auto 0;
+    }
+}
+
+.b-tree-parent-row .b-timeaxis-cell {
+    align-items : flex-start;
+}
+
+.b-tree-summary-cell {
+    position : relative;
+}
+
+.b-tree-summary-cell {
+    font-size   : .9em;
+    font-weight : 400;
+}
+
+.b-tree-cell-value .b-resource-avatar {
+    margin-inline-end : 1em;
+}
+
+.b-icon-tree-leaf {
+    display : none;
+}
+
+.b-grid-headers-locked,
+.b-grid-subgrid-locked {
+    .b-grid-header,
+    .b-grid-cell {
+        padding-inline : 1em;
+    }
+}
+
+.b-horizontaltimeaxis .b-sch-header-row {
+    flex : 1 0 2.5em;
+
+    &.b-lowest .b-sch-header-text {
+        text-align     : center;
+        text-transform : uppercase;
+        font-weight    : 400;
+        font-size      : .85em;
+    }
+}
+
+.b-sch-event .b-sch-event-content {
+    display        : flex;
+    flex           : 1;
+    flex-direction : column;
+    align-items    : flex-start;
+    font-size      : .9em;
+
+    .b-event-duration {
+        inset-inline-end : 0;
+        font-size        : .9em;
+        font-weight      : 400;
+    }
+}
+
+.b-tree-icon, .b-icon-tree-leaf, .b-icon-tree-folder, .b-icon-tree-folder-open, .b-icon-tree-expand, .b-icon-tree-collapse {
+    color : inherit;
+}
+
+.b-readonly > .b-grid-cell {
+    color : inherit;
+}
+
+.b-column-lines-canvas,
+.b-sch-nonworkingtime {
+    z-index : 0;
+}
+
+.b-sch-clockwrap:not(:first-child) {
+    margin-top : 1em;
+}
+
+.b-tree-cell-inner .b-fa {
+    color             : rgb(var(--widget-primary-color-rgb));
+    margin-inline-end : 1em;
+}
+
+.b-sch-dayheadercell-6,
+.b-sch-dayheadercell-0 {
+    opacity : 0.5;
+}
+
+.b-daily-hours {
+    border-radius       : 1em;
+    padding             : 0.3em 1em;
+    margin-inline-start : 1em;
+    font-weight         : 400;
+    order               : 1;
+    margin-inline       : auto 1em;
+    font-size           : .75em;
+}
+
+.b-grid-row.b-tree-parent-row {
+    .b-tree-cell {
+        padding-inline-end : 0.3em;
+        font-weight        : 400;
+    }
+}
+
+.b-grid-row:not(.b-tree-parent-row) {
+    border-color : transparent;
+
+    .b-tree-cell-value {
+        justify-content : flex-end;
+    }
+}
+
+.b-tree-expander {
+    order : 10;
+}
+
+.b-sch-horizontal .b-sch-event-wrap.b-sch-style-rounded:not(.b-milestone) .b-sch-event-content {
+    margin : .6em;
+}
+
+.b-over-allocated {
+    font-weight : 600;
+    color       : #e53f2c;
+}
+
+.b-grid-headerwidget.b-button {
+    width      : .4em;
+    height     : .6em;
+    padding    : .6em;
+    min-height : 0;
+
+    &:last-of-type {
+        margin-inline-end : .2em;
+    }
+}
+
+.b-button-icon {
+    &.b-fa-angles-down,
+    &.b-fa-angles-up {
+        font-size : .7em;
+    }
+}
+
+.b-day-highlight {
+    .b-grid-header &,
+    .b-timeline-subgrid & {
+        background-color : #3183fe12;
+    }
+
+    .b-grid-header & {
+        border-top : 2px solid #3183feaa;
+    }
+}
+
+.b-grid-header .b-sch-timerange {
+    overflow : visible;
+
+    label {
+        top      : -2.5em;
+        position : relative;
+        overflow : visible;
+        color    : #3183feaa;
+    }
+}

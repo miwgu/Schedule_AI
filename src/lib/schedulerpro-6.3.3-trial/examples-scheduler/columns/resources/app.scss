@@ -1,0 +1,24 @@
+.box {
+    width         : 1em;
+    height        : 1em;
+    border-radius : 3px;
+    margin-inline-end  : .5em;
+}
+
+.capacity {
+    color               : #666;
+    margin-inline-start : .5em;
+}
+
+.b-sch-event span {
+    font-weight         : 300;
+    margin-inline-start : .5em;
+}
+
+.b-room-theme-column-cell {
+    font-size       : 0.8em;
+}
+
+.b-room-theme-column-cell i::before{
+    margin-inline-end : .5em;
+}

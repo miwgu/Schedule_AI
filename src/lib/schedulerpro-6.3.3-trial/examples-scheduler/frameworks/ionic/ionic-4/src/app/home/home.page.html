@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar>
+        <!-- BryntumDemoHeader component is used for Bryntum example styling only and can be removed -->
+        <bryntum-demo-header></bryntum-demo-header>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class = "demo-toolbar">
+        <bryntum-button
+            text = "Add event"
+            icon = "b-fa b-fa-plus"
+            cls = "b-green"
+            (onClick) = "onAddEventClick()"
+        ></bryntum-button>
+        <bryntum-button
+            text = "Remove event"
+            icon = "b-fa b-fa-trash"
+            cls = "b-red"
+            (onClick) = "onRemoveEventClick()"
+            [disabled] = "selectedEventName === ''"
+        ></bryntum-button>
+        <div class = "spacer"></div>
+        <label class = "sel-event">
+            Selected event:
+            <span>{{ selectedEventName || 'None' }}</span>
+        </label>
+        <div class = "spacer"></div>
+        <bryntum-slider
+            text = "Bar margin"
+            [min] = 5
+            [max] = 20
+            [value] = "barMargin"
+            (onInput) = "onBarMarginChange($event)"
+        ></bryntum-slider>
+    </div>
+    <bryntum-scheduler
+        #scheduler
+        minHeight = "auto"
+        [barMargin] = "barMargin"
+        [columns] = "schedulerProps.columns"
+        [crudManager] = "schedulerProps.crudManager"
+        [endDate] = "schedulerProps.endDate"
+        [eventEditFeature] = "schedulerProps.eventEditFeature"
+        [eventRenderer] = "schedulerProps.eventRenderer"
+        [events] = "schedulerProps.events"
+        [eventStore]="schedulerProps.eventStore"
+        [resourceImagePath] = "schedulerProps.resourceImagePath"
+        [resources] = "schedulerProps.resources"
+        [rowHeight] = "schedulerProps.rowHeight"
+        [startDate] = "schedulerProps.startDate"
+        [timeRanges] = "schedulerProps.timeRanges"
+        [timeRangesFeature] = "schedulerProps.timeRangesFeature"
+        [viewPreset] = "schedulerProps.viewPreset"
+        (onEventSelectionChange) = "onEventSelectionChange()"
+        (onReleaseEvent) = "onReleaseEvent()"
+    ></bryntum-scheduler>
+</ion-content>

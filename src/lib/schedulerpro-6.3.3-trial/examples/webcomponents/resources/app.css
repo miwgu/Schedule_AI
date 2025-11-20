@@ -1,0 +1,14 @@
+html, body{
+  height:100%;
+  margin:0;
+}
+
+bryntum-schedulerpro{
+  width:100%;
+  flex:1;
+}
+bryntum-schedulerpro > *{
+  display:none;
+}
+
+/*# sourceMappingURL=app.css.map */

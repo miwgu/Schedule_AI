@@ -1,0 +1,14 @@
+.b-assignment-info dt{
+  font-weight:400;
+  margin-bottom:0.2em;
+}
+.b-assignment-info dd{
+  margin-inline-start:0em;
+  font-size:0.8em;
+}
+
+.b-buttongroup.group-buttons .b-button.b-pressed .b-fa-arrow-up, .b-buttongroup.group-buttons .b-button.b-pressed .b-fa-arrow-down{
+  color:#efbbbb;
+}
+
+/*# sourceMappingURL=app.css.map */

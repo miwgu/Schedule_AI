@@ -1,0 +1,13 @@
+{
+  "vehicles": [
+    { "id": "v1", "name": "Bil 1" },
+    { "id": "v2", "name": "Bil 2" }
+  ],
+  "visits": [
+    { "id": "visit1", "address": "Gamla Stan", "durationMin": 60 },
+    { "id": "visit2", "address": "Södermalm", "durationMin": 45 },
+    { "id": "visit3", "address": "Östermalm", "durationMin": 30 },
+    { "id": "visit4", "address": "Djurgården", "durationMin": 40 }
+  ],
+  "dayStart": "2025-11-18T08:00:00"
+}

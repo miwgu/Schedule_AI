@@ -1,0 +1,8 @@
+@use 'sass:color';
+@import '../../../scheduler-sass/themes/vars/material-vars';
+
+$schedulerpro-timeline-border-color          : $grid-cell-border-color;
+$schedulerpro-timeline-label-color           : color.adjust($grid-cell-border-color, $lightness : -10%);
+$schedulerpro-timeline-label-font-weight     : 400;
+
+$taskeditor-recurrence-info-background-color : #ffeeee;

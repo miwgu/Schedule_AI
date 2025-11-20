@@ -1,0 +1,210 @@
+@import '@bryntum/schedulerpro/schedulerpro.stockholm.css';
+/* Demo styling is used for Bryntum example only. Not required for application */
+@import '@bryntum/demo-resources/scss/example.scss';
+
+body {
+    flex-flow : initial;
+}
+
+body:not(.b-theme-classic-dark) {
+    .b-grid-subgrid-normal {
+        background : #f7f8f9;
+    }
+
+    .b-grid-headers-locked .b-grid-header {
+        background : #fff;
+        color      : #000;
+    }
+
+    .b-sch-event {
+        background-color : #fff;
+        box-shadow       : 1px 2px 4px #ddd;
+    }
+
+    .b-sch-event-content {
+        color : #333;
+    }
+
+    .b-resource-avatar {
+        border : 1px solid #fff;
+    }
+
+    .b-type-timeoff {
+        background-image : linear-gradient(-45deg, rgba(0, 0, 0, 0) 46%, #ccc 49%, #ccc 52%, rgba(0, 0, 0, 0) 49%);
+    }
+}
+
+body.b-theme-classic-dark {
+    .b-column-lines {
+        border-color : #d8d9da;
+    }
+
+    .b-resource-avatar {
+        border : 1px solid #333;
+    }
+
+    .b-sch-event {
+        box-shadow       : 1px 1px 3px #222;
+        background-color : #333;
+    }
+
+    .b-type-timeoff {
+        background-image : linear-gradient(-45deg, rgba(0, 0, 0, 0) 46%, #666 49%, #666 52%, rgba(0, 0, 0, 0) 49%);
+    }
+
+    .b-eventeditor .b-buttongroup .b-button:not(.b-pressed) {
+        background : transparent;
+    }
+}
+
+.b-sch-event {
+    border-radius : 0.5em;
+}
+
+.b-type-timeoff {
+    background-size : 7px 7px !important;
+}
+
+.b-grid-header-container {
+    box-shadow    : none;
+    border-bottom : none;
+}
+
+.b-sch-event-content {
+    flex-direction  : column;
+    width           : 100%;
+    margin          : 0 0.75em !important;
+    height          : 100%;
+    justify-content : space-evenly;
+
+    .header,
+    .footer, .avatars {
+        display : flex;
+    }
+
+    .header {
+        align-items : flex-start;
+    }
+
+    .footer, .avatars {
+        align-items : center;
+
+        span {
+            margin-inline-end : auto;
+        }
+    }
+
+    .b-fa-ellipsis {
+        position            : relative;
+        top                 : -0.5em;
+        margin-inline-start : auto;
+        margin-inline-end   : 0 !important;
+    }
+
+    .b-resource-avatar {
+        margin-inline-start : -.7em;
+
+        &:hover {
+            z-index : 10;
+        }
+    }
+
+    .b-blue-icon {
+        color : #0076f8;
+    }
+}
+
+.progress-outer {
+    display       : flex;
+    width         : 5em;
+    height        : .5em;
+    background    : #eee;
+    border-radius : .5em;
+    background    : #0076f822;
+
+    .progress-fill {
+        background    : #0076f8;
+        border-radius : inherit;
+
+        .b-scheduler:not(.b-grid-refreshing) & {
+            transition : width .3s;
+        }
+    }
+}
+
+
+body:not(.b-theme-material) .b-eventeditor {
+    .b-eventeditor-content {
+        gap : 1.5em;
+    }
+}
+
+.b-eventeditor {
+    .b-eventeditor-content {
+        padding : 1.5em;
+        gap     : 1.5em;
+    }
+
+    .b-panel-overlay-right {
+        width : 28em !important;
+    }
+
+    .b-datefield,
+    .b-timefield {
+        flex : 1 10em !important;
+    }
+
+    .b-timefield {
+        align-self : flex-end;
+    }
+
+    .b-field {
+        .b-label {
+            text-transform : none;
+            font-weight    : 500;
+        }
+    }
+
+    .b-custom-buttongroup-container {
+        gap : 0;
+    }
+
+    .b-buttongroup {
+        width         : 100%;
+        border-radius : 10px;
+
+        .b-button {
+            flex : 1;
+
+            &:not(.b-pressed) {
+                background-color : #fff;
+            }
+
+            &:first-child {
+                border-top-left-radius    : 10px;
+                border-bottom-left-radius : 10px;
+            }
+
+            &:last-child {
+                border-top-right-radius    : 10px;
+                border-bottom-right-radius : 10px;
+            }
+
+            &.b-pressed {
+                background : #0076f8;
+            }
+        }
+    }
+}
+
+
+body:not(.b-theme-material) {
+    .b-field-inner {
+        border-color : #aaaaaa44;
+
+        &, & .b-chip {
+            border-radius : 10px;
+        }
+    }
+}
+

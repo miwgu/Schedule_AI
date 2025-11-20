@@ -1,0 +1,10 @@
+.histogram-toolbar {
+    justify-content : flex-end;
+    min-height      : 60px;
+    max-height      : 60px;
+    box-shadow      : 0 -2px 4px rgba(0, 0, 0, 0.08);
+
+    .b-checkbox {
+        margin-inline-end : 1em;
+    }
+}

@@ -1,0 +1,39 @@
+<!-- BryntumDemoHeader component is used for Bryntum example styling only and can be removed -->
+<bryntum-demo-header></bryntum-demo-header>
+
+<div class = "demo-toolbar">
+  <bryntum-button
+      text = 'Automatic reschedule'
+      tooltip = 'Toggles whether to automatically reschedule overlapping tasks'
+      icon = 'b-fa b-fa-calendar'
+      [toggleable] = true
+      (onToggle) = "onToggle($event)"
+  ></bryntum-button>
+</div>
+
+<div id = "content">
+    <bryntum-scheduler
+        #scheduler
+        [barMargin] = "schedulerProps.barMargin!"
+        [columns] = "schedulerProps.columns!"
+        [crudManager] = "schedulerProps.crudManager!"
+        [eventColor] = "schedulerProps.eventColor!"
+        [rowHeight] = "schedulerProps.rowHeight!"
+        [startDate] = "schedulerProps.startDate!"
+        [endDate] = "schedulerProps.endDate!"
+        [viewPreset] = "schedulerProps.viewPreset!"
+        [eventMenuFeature] = "schedulerProps.eventMenuFeature!"
+        [stripeFeature] = "schedulerProps.stripeFeature!"
+        [timeRangesFeature] = "schedulerProps.timeRangesFeature!"
+        [resourceImagePath] = "schedulerProps.resourceImagePath!"
+        [allowOverlap] = "schedulerProps.allowOverlap!"
+    ></bryntum-scheduler>
+    <bryntum-grid
+        #grid
+        [columns] = "gridProps.columns!"
+        [rowHeight] = "gridProps.rowHeight!"
+        [sortFeature] = "gridProps.sortFeature!"
+        [store] = "gridProps.store!"
+        [stripeFeature] = "gridProps.stripeFeature!"
+    ></bryntum-grid>
+</div>

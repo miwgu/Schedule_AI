@@ -1,0 +1,51 @@
+/**
+ * App component styles
+ */
+@import "@bryntum/schedulerpro/schedulerpro.material.css";
+@import "@bryntum/demo-resources/scss/example-webpack.scss";
+
+.b-timelinehistogram {
+
+    rect.b-series-work.too-much-work {
+        /* display work bar red if it's > maxWork */
+        fill : red;
+    }
+
+    &.b-hide-work {
+        rect.b-series-work {
+            display : none;
+        }
+    }
+
+    &.b-hide-travelTime {
+        rect.b-series-travelTime {
+            display : none;
+        }
+    }
+
+    &.b-hide-maxWork {
+        path.b-series-maxWork {
+            display : none;
+        }
+    }
+}
+
+.b-button {
+    &.work-button {
+        .b-fa {
+            color : #4caf50;
+        }
+    }
+
+    &.travelTime-button {
+        .b-fa {
+            color : #1565c0;
+        }
+    }
+
+    &.maxWork-button {
+        .b-fa {
+            color : red;
+        }
+    }
+}

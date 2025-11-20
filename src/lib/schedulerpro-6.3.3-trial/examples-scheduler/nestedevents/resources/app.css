@@ -1,0 +1,52 @@
+.b-sch-event{
+  padding-inline-start:0;
+  background-image:repeating-linear-gradient(135deg, #eee, #eee 3px, #fff 3px, #fff 6px);
+  border-radius:5px;
+}
+.b-sch-event.b-sch-event-resizing, .b-sch-event.b-sch-event-selected, .b-sch-event:hover{
+  background-image:repeating-linear-gradient(135deg, #e8e8e8, #e8e8e8 3px, #fff 3px, #fff 6px) !important;
+}
+
+.b-theme-classic-dark .b-sch-event{
+  background-image:repeating-linear-gradient(135deg, #777, #777 3px, #444 3px, #444 6px);
+}
+.b-theme-classic-dark .b-sch-event.b-sch-event-resizing, .b-theme-classic-dark .b-sch-event.b-sch-event-selected, .b-theme-classic-dark .b-sch-event:hover{
+  background-image:repeating-linear-gradient(135deg, #888, #888 3px, #555 3px, #555 6px) !important;
+}
+
+.eventWithAgenda .b-sch-event-content{
+  background-color:inherit;
+}
+.eventWithAgenda .b-sch-event-content .nested{
+  position:absolute;
+  background-color:inherit;
+  font-size:0.9em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.b-sch-horizontal .nested{
+  top:0;
+  bottom:0;
+  padding-inline-start:0.5em;
+}
+
+.b-sch-vertical .nested{
+  left:0;
+  right:0;
+  padding-top:0.5em;
+}
+
+.b-resize-handle:before, .b-resize-handle:before{
+  z-index:10;
+}
+
+.b-tooltip h3{
+  margin-block:0;
+}
+.b-tooltip h5{
+  margin-block:1em 0.25em;
+}
+
+/*# sourceMappingURL=app.css.map */

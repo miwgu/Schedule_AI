@@ -1,0 +1,137 @@
+:root {
+    --fade : linear-gradient(#ffffffee, #ffffff90)
+}
+
+.b-sch-event {
+    display               : grid;
+    grid-template-columns : 1fr;
+    align-items           : stretch;
+    border-radius         : 10px;
+    background-image      : var(--fade) !important;
+
+    .b-sch-event-content {
+        display             : flex;
+        flex-direction      : column;
+        justify-content     : center;
+        margin-inline-start : 1.5em !important;
+    }
+
+    .name {
+        font-size : 1.2em;
+        color     : #111 !important;
+
+        i.b-fa {
+            margin-inline-end : 0.5em;
+            color             : #111 !important;
+        }
+    }
+
+    .desc {
+        margin-top  : .25em;
+        white-space : normal;
+        font-size   : 0.9em;
+        color       : #333 !important;
+    }
+
+    &.b-sch-event-selected {
+        background-image : linear-gradient(#ffffffbb, #ffffff80) !important;
+        opacity          : 1;
+    }
+}
+
+.b-resource-avatar {
+    background-image : var(--fade) !important;
+    border           : 1px solid;
+    color            : #000;
+    width            : 3em;
+    height           : 3em;
+
+    &.b-sch-pink {
+        border-color : #d30155;
+    }
+
+    &.b-sch-violet {
+        border-color : #7f01d3;
+    }
+
+    &.b-sch-indigo {
+        border-color : #1601d3;
+    }
+}
+
+.b-sch-dependency {
+    stroke           : #1601d3;
+    stroke-width     : 2px;
+    stroke-dasharray : 5, 5;
+}
+
+#arrowEnd {
+    fill : #1601d3;
+}
+
+.b-grid-header-container {
+    border-bottom : none;
+}
+
+.b-grid-header .b-sch-timerange {
+    background : #4534dd;
+}
+
+.b-grid-header .b-sch-timerange.b-sch-line {
+    background : #d30155;
+}
+
+.b-timeline-subgrid .b-sch-line {
+    border-left : 2px solid #d30155;
+}
+
+.b-timeline-subgrid .b-sch-range {
+    background : #4534DD0F;
+}
+
+.b-sch-resourcetimerange {
+    background : #FFD9E54C;
+    color      : #777;
+    cursor     : pointer;
+    transition : background 0.3s;
+
+    &:hover {
+        background : #FFD9E570;
+    }
+}
+
+@keyframes spinner {
+    0% {
+        transform : rotate(
+                0deg
+        );
+    }
+    100% {
+        transform : rotate(
+                1turn
+        );
+    }
+}
+
+.b-fa-spinner {
+    animation : spinner 2s linear infinite;
+}
+
+.b-fa-check-circle {
+    color : green;
+}
+
+.b-fa-times-circle {
+    color : red;
+}
+
+.b-fa-user-edit {
+    color : orange;
+}
+
+.b-widget[data-ref="crudStatus"] {
+    .b-fa {
+        margin-inline-start: .5em;
+    }
+}
+

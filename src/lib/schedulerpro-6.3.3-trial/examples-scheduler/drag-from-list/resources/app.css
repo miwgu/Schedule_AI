@@ -1,0 +1,133 @@
+.b-sch-event-wrap .b-sch-event{
+  border-radius:3px;
+  box-shadow:0 1px 1px 0 rgba(0, 0, 0, 0.25);
+  align-items:stretch;
+}
+.b-sch-event-wrap .b-sch-event .b-sch-event-content{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-around;
+  font-size:1.1em;
+  padding:0.5em 0;
+}
+
+#bodycontainer{
+  flex:1 1 0;
+  display:flex;
+  flex-direction:row;
+  align-items:stretch;
+}
+#bodycontainer > *{
+  height:auto;
+}
+#bodycontainer [data-ref=schedule]{
+  flex:1;
+}
+
+i.b-equipment-icon{
+  color:#4887e5;
+}
+.b-theme-classic-dark i.b-equipment-icon{
+  color:rgb(116.6555023923, 164.2822966507, 235.3444976077);
+}
+i.b-equipment-icon.b-dragging{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  opacity:1;
+}
+i.b-equipment-icon.b-dragging:not(.b-drag-final-transition){
+  width:3em;
+  height:3em;
+  font-size:1.2em;
+  background:white;
+  box-shadow:0 3px 6px rgba(221, 221, 221, 0.6666666667);
+}
+i.b-equipment-icon.b-dragging:not(.b-drag-final-transition):not(.b-drag-invalid){
+  color:#27ca37;
+}
+.b-theme-classic-dark i.b-equipment-icon.b-dragging{
+  background:#333;
+}
+i.b-equipment-icon.b-drag-final-transition{
+  transition-property:transform, font-size, padding, width, height;
+  transition-duration:0.5s;
+  font-size:0.9em;
+  color:#fff;
+}
+
+.b-sch-event-name{
+  font-size:1.2em;
+  margin-bottom:0.2em;
+}
+
+.b-sch-event-startdate{
+  color:gray;
+  margin-bottom:auto;
+  font-size:0.9em;
+}
+.b-sch-event:hover .b-sch-event-startdate{
+  color:#eee;
+}
+
+.b-sch-event-equipment-wrap{
+  display:flex;
+  align-items:center;
+}
+
+.b-sch-event .b-sch-event-equipment-wrap{
+  padding:0;
+  margin:0;
+}
+.b-sch-event .b-sch-event-equipment-wrap li.b-fa{
+  margin-inline-end:0.7em;
+}
+
+.b-panel.equipmentpanel{
+  flex:0 0 16em;
+  border-inline-start:3px solid #e9eaeb;
+}
+.b-panel.equipmentpanel .b-panel-content{
+  padding:0;
+}
+
+.b-grid-header-container,
+.b-panel-header.b-panel-ui-toolbar.b-dock-top{
+  height:4em;
+  min-height:4em;
+}
+
+[data-ref=equipment].b-list{
+  display:flex;
+  flex-wrap:wrap;
+  font-size:0.9em;
+  justify-content:center;
+  align-content:flex-start;
+  border-color:transparent;
+  background-color:transparent;
+}
+[data-ref=equipment].b-list .b-list-item{
+  min-width:0;
+  width:50%;
+  height:8em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-evenly;
+  border-width:0;
+}
+[data-ref=equipment].b-list .b-list-item:hover:not(.b-selected){
+  background:rgba(153, 153, 153, 0.1333333333);
+}
+[data-ref=equipment].b-list i{
+  font-size:1.5em;
+}
+
+.b-theme-classic-dark .equipmentpanel{
+  border-inline-start-color:#2b2b2f;
+}
+
+/*# sourceMappingURL=app.css.map */

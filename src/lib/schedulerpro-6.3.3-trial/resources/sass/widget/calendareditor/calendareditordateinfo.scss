@@ -1,0 +1,50 @@
+.b-calendareditor-content {
+    .b-calendareditordateinfo {
+        // https://github.com/bryntum/support/issues/9475
+        // conflicts with `.b-widget { display : inline-flex }` in docs, need to prioritize
+        // avoiding `!important` by adding specificity (the wrapping `.b-calendareditor-content` class)
+        display : block;
+    }
+}
+
+.b-calendareditordateinfo {
+    padding : 0.4em;
+
+    .b-time-ranges {
+        padding-inline-start: 2em;
+    }
+
+    .b-intervals {
+        padding-inline-start: 0.8em;
+
+        li {
+            list-style    : none outside none;
+
+            &.b-interval:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            &:before {
+                content           : "\f0c8"; // fa-square
+                text-align        : center;
+                margin-top        : 0.2em;
+                margin-inline-end : 0.7em;
+                border            : none;
+            }
+
+            &.b-interval:before {
+                color : var(--interval-badge-color);
+                display : inline-block;
+            }
+
+            &.b-interval:hover:before {
+                text-decoration : none;
+            }
+        }
+    }
+
+    .b-date-text {
+        font-weight : bold;
+    }
+}

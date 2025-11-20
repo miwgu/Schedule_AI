@@ -1,0 +1,26 @@
+/**
+ * App component scss file
+ */
+@import "@bryntum/schedulerpro/schedulerpro.material.css";
+@import "@bryntum/demo-resources/scss/example-webpack.scss";
+
+bryntum-scheduler {
+    flex : 1;
+}
+
+.box {
+    width         : 1em;
+    height        : 1em;
+    border-radius : 3px;
+    margin-inline-end  : .5em;
+}
+
+.capacity {
+    color       : #666;
+    margin-inline-start : .5em;
+}
+
+.b-sch-event span {
+    font-weight : 300;
+    margin-inline-start : .5em;
+}

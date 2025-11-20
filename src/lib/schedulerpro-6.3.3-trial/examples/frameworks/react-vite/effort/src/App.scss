@@ -1,0 +1,45 @@
+@import "@bryntum/demo-resources/scss/example.scss";
+
+.b-assignment-info {
+    dt {
+        font-weight   : 400;
+        margin-bottom : 0.2em;
+    }
+
+    dd {
+        margin-inline-start : 0;
+        font-size           : 0.8em;
+    }
+}
+
+.b-container.b-outer {
+    flex : none;
+}
+
+.schedule-container {
+    flex       : 1 1 50%;
+    display    : flex;
+    flex-flow  : column nowrap;
+    min-height : 10em;
+
+    .b-schedulerpro {
+        display : flex;
+        flex    : 1;
+        height  : auto;
+    }
+}
+
+.resource-container {
+    flex       : 1 1 50%;
+    display    : flex;
+    flex-flow  : column nowrap;
+    min-height : 10em;
+
+    .b-assignment-info {
+        display     : flex;
+        flex        : 1;
+        height      : auto;
+        align-items : center;
+        gap         : 5px;
+    }
+}
