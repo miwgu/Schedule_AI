@@ -62,11 +62,19 @@ export default function Page() {
   }
 
   return (
-    <div style={{ padding: 20, fontFamily: 'system-ui, sans-serif' }}>
-      <h1>ScheduleAI</h1>
-      <OptimizeButton loading={loading} onClick={handleOptimize} />
-      {error && <div style={{ color: 'red' }}>Error: {error}</div>}
-      <Calendar events={events} />
-    </div>
+   <div className="scheduleai-container">
+     <h1 className="scheduleai-header">ScheduleAI</h1>
+   
+     <div className="optimize-button-wrap">
+       <OptimizeButton loading={loading} onClick={handleOptimize} />
+     </div>
+   
+     {error && <div className="scheduleai-error">Error: {error}</div>}
+   
+     <div className="scheduler-wrapper">
+       <Calendar events={events} />
+     </div>
+   </div>
+
   )
 }

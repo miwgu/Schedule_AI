@@ -54,9 +54,14 @@ export default function Calendar({ events }: CalendarProps) {
           { text: 'Employee', field: 'name', width: 150 }
         ],
 
+        subGridConfigs:{
+          locked: { flex: 1 }, 
+          normal: { flex: 4 }, 
+        },
+
         resources,
         events: evts,
-        rowHeight: 35,
+        rowHeight: 40,
 
         tbar: [
           {
