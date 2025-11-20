@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore Bryntum SchedulerPro trial folder
+schedulerpro-6.3.3-trial/
