@@ -19,7 +19,7 @@ export default function Calendar({ events }: CalendarProps) {
       const SchedulerClass = mod.Scheduler || mod.default?.Scheduler
       if (!SchedulerClass) return
 
-      // --- リソースをユニークに作成
+      // Create unique resources
       const resourceMap = new Map<string, { id: string; name: string }>()
       events.forEach(e => {
         const rid = e.resourceId || e.id
@@ -29,7 +29,7 @@ export default function Calendar({ events }: CalendarProps) {
       })
       const resources = Array.from(resourceMap.values())
 
-      // --- イベントを変換
+      // Convert events
       const evts = events.map(e => ({
         id: e.id,
         resourceId: e.resourceId || e.id,
@@ -49,11 +49,12 @@ export default function Calendar({ events }: CalendarProps) {
           : new Date(),
         viewPreset: 'hourAndDay',
 
-        // --- 左側の列に従業員名を表示
+        // desplay employee name onleft side
         columns: [
           { text: 'Employee', field: 'name', width: 150 }
         ],
 
+        // Keep the calendar fixed at the top and the employee list fixed on the left
         subGridConfigs:{
           locked: { flex: 1 }, 
           normal: { flex: 4 }, 
@@ -68,7 +69,7 @@ export default function Calendar({ events }: CalendarProps) {
             type: 'button', text: 'Prev', cls: 'b-tool-action', weight: 100,
             onClick: () => {
               const curStart = scheduler.startDate
-              const delta = scheduler.timeAxisSubGrid?.tickSize || 24*60*60*1000
+              const delta = (scheduler.timeAxisSubGrid as any)?.tickSize || 24*60*60*1000
               scheduler.scrollToDate(new Date(curStart.getTime() - delta))
             }
           },
@@ -77,14 +78,14 @@ export default function Calendar({ events }: CalendarProps) {
             onClick: () => {
               const today = new Date()
               scheduler.scrollToDate(today)
-              scheduler.setTimeSpan(today, new Date(today.getTime() + (scheduler.endDate - scheduler.startDate)))
+              scheduler.setTimeSpan(today, new Date(today.getTime() + (scheduler.endDate.getTime() - scheduler.startDate.getTime())))
             }
           },
           {
             type: 'button', text: 'Next', cls: 'b-tool-action', weight: 102,
             onClick: () => {
               const curStart = scheduler.startDate
-              const delta = scheduler.timeAxisSubGrid?.tickSize || 24*60*60*1000
+              const delta = (scheduler.timeAxisSubGrid as any)?.tickSize || 24*60*60*1000
               scheduler.scrollToDate(new Date(curStart.getTime() + delta))
             }
           }
