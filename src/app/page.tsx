@@ -13,6 +13,7 @@ export default function Page() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [visitsMap, setVisitsMap] = useState<Record<string, string>>({}) 
+  const [skillsMap, setSkillsMap] = useState<Record<string, {name:string; level:number}[]>>({})
 
   useEffect(() => {
     const fetchDemo = async () => {
@@ -20,7 +21,10 @@ export default function Page() {
         const res = await axios.get('/api/demo/get/BASIC')
         const json = res.data as InputJson
         setInput(json)
-        setEvents(convertInputToEvents(json))
+
+        const { events, skillsMap } = convertInputToEvents(json)
+        setEvents(events)
+        setSkillsMap(skillsMap)
 
         //create map of visit id-> name
         const  map: Record<string, string> = {}
@@ -45,7 +49,7 @@ export default function Page() {
       const solution = await pollSolution(planId)
 
       // Pass visitsMap to convert solution to events with names
-      setEvents(solutionToEvents(solution, visitsMap))
+      setEvents(solutionToEvents(solution, visitsMap, skillsMap))
 
     } catch (err: any) {
       console.error(err)
@@ -65,7 +69,7 @@ export default function Page() {
 
       // Drawing the intermediate process
       if (resp.data.modelOutput) {
-        setEvents(solutionToEvents(resp.data.modelOutput, visitsMap))
+        setEvents(solutionToEvents(resp.data.modelOutput, visitsMap, skillsMap))
       }
 
       await new Promise(res => setTimeout(res, 2000))

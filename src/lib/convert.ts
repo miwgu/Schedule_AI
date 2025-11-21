@@ -1,19 +1,30 @@
 import { InputJson, FCEvent } from "../types";
 
-// Before optimization: input → events
-export function convertInputToEvents(input: InputJson): FCEvent[] {
+/**
+ * Before optimization:
+ * Convert raw input data (before optimization) into SchedulerPro-compatible events and skills map.
+ */
+export function convertInputToEvents(input: InputJson): {
+    events: FCEvent[],
+    skillsMap: Record<string, { name: string; level: number }[]>
+} {
+  
   const events: FCEvent[] = []
-  const vehicleSkills: { name: string; level: number }[] = []
-  const resourceSkillsMap: Record<string, string[]> = {}
-
+  const skillsMap: Record<string, { name: string; level: number }[]> = {}
+ 
   input.vehicles.forEach(v => {
 
-    const vehicleId = v.id
-    const skills: string[] = []
+   const vehicleId = v.id
+   const collectedSkills: { name: string; level: number }[] = []
 
-
-    v.shifts.forEach(shift => {
-      // Shift
+   v.shifts.forEach(shift => {
+      // collect skills for the resource
+       shift.skills?.forEach(s => {
+        if (!collectedSkills.find(x => x.name === s.name && x.level === s.level)) {
+          collectedSkills.push({ name: s.name, level: s.level })
+        }
+      })
+      // Shift event
       events.push({
         id: `shift-${vehicleId}-${shift.id}`,
         resourceId: vehicleId,
@@ -23,11 +34,6 @@ export function convertInputToEvents(input: InputJson): FCEvent[] {
         name: `Shift (${vehicleId})`,
         eventColor: "green",
         skills: shift.skills ?? []
-      })
-
-      // Skills
-      shift.skills?.forEach(s => {
-        vehicleSkills.push({ name: s.name, level: s.level })
       })
 
       // Break
@@ -44,11 +50,12 @@ export function convertInputToEvents(input: InputJson): FCEvent[] {
           endDate: end,
           name: "Break",
           eventColor: "orange",
-          skills: vehicleSkills
+          skills: collectedSkills
         })
       })
     })
-    resourceSkillsMap[vehicleId] = vehicleSkills.map(s => `${s.name} Lv${s.level}`)
+        // save skills for this vehicle
+    skillsMap[vehicleId] = collectedSkills
   })
 
   // Visits
@@ -67,12 +74,22 @@ export function convertInputToEvents(input: InputJson): FCEvent[] {
     })
   })
 
-  return events
+  return {
+    events,
+    skillsMap
+  }
 }
 
-// After optimization: solution → events
-export function solutionToEvents(solution: any, visitsMap?: Record<string, string>): FCEvent[] {
-  const out: FCEvent[] = []
+/**
+ * After optimization:
+ * Convert optimization solution into SchedulerPro-compatible events.
+ */
+export function solutionToEvents(
+    solution: any, 
+    visitsMap?: Record<string, string>, 
+    resourceSkillsMap?: Record<string, { name: string; level: number }[]>): FCEvent[] {
+  
+     const out: FCEvent[] = []
 
   for (const vehicle of solution.vehicles ?? []) {
     const vehicleId = vehicle.id
@@ -85,6 +102,7 @@ export function solutionToEvents(solution: any, visitsMap?: Record<string, strin
           id: task.id,
           resourceId: vehicleId,
           resourceName: vehicleName,
+          skills: resourceSkillsMap?.[vehicleId] || [],
           startDate: task.startServiceTime || task.startTime || task.arrivalTime,
           endDate: task.departureTime || task.endTime,
           name: visitName,

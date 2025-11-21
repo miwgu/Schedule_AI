@@ -40,14 +40,24 @@ export default function Calendar({ events }: CalendarProps) {
       }
 
       // Extract unique resources (id & name) from events to build the SchedulerPro resource list
-      const resourceMap = new Map<string, { id: string; name: string; skills?: { name: string; level: number }[]}>()
-      events.forEach(e => {
-        const rid = e.resourceId || 'unassigned'
-        if (!resourceMap.has(rid)) {
-          resourceMap.set(rid, { id: rid, name: e.resourceName || rid , skills: e.skills})
-        }
-      })
-      const resources = Array.from(resourceMap.values())
+
+     const resources = Object.values(
+       events.reduce((acc: any, e: any) => {
+         if (!acc[e.resourceId]) {
+           acc[e.resourceId] = {
+             id: e.resourceId,
+             name: e.resourceName || e.resourceId,
+             skills: e.skills || []
+           }
+         } else {
+           if (e.skills && e.skills.length > 0) {
+             acc[e.resourceId].skills = e.skills
+           }
+         }
+         return acc
+       }, {})
+     )
+
 
       // Convert events to scheduler format
       const evts = events.map(e => ({
@@ -70,8 +80,7 @@ export default function Calendar({ events }: CalendarProps) {
 
       // Placeholder: dependencies array (if you later map Timefold's ordering to dependency records)
       // Example structure for SchedulerPro dependencies:
-      // const dependencies = [{ id: 'd1', from: 'visitA', to: 'visitB', type: 0 }]
-      const dependencies: any[] = []
+      //const dependencies: any[] = []
 
       // Create scheduler
       const scheduler = new SchedulerClass({
